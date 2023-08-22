@@ -1,8 +1,8 @@
 {
-  "name": "aws-rds-database-auto-running-stopper",
+  "name": "@gammarer/aws-rds-database-auto-running-stopper",
   "repository": {
     "type": "git",
-    "url": "https://github.com/higa/aws-rds-database-auto-running-stopper.git"
+    "url": "https://github.com/yicr/aws-rds-database-auto-running-stopper.git"
   },
   "scripts": {
     "build": "npx projen build",
@@ -70,6 +70,9 @@
   },
   "main": "lib/index.js",
   "license": "Apache-2.0",
+  "publishConfig": {
+    "access": "public"
+  },
   "version": "0.0.0",
   "jest": {
     "testMatch": [
