@@ -19,7 +19,6 @@ describe('RDSDatabaseAutoRunningStopper Default Testing', () => {
   it('Should match state machine default policy', () => {
     template.hasResourceProperties('AWS::IAM::Policy', Match.objectEquals({
       PolicyName: Match.stringLikeRegexp('rds-database-auto-running-stopper-state-machine-default-.*-policy'),
-      Description: Match.anyValue(),
       PolicyDocument: {
         Version: '2012-10-17',
         Statement: Match.arrayEquals([
