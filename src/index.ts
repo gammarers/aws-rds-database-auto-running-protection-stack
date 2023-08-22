@@ -118,7 +118,6 @@ export class RDSDatabaseAutoRunningStopper extends Construct {
     const policy = role.node.findChild('DefaultPolicy') as iam.Policy;
     const cfnPolicy = policy.node.defaultChild as iam.CfnPolicy;
     cfnPolicy.addPropertyOverride('PolicyName', `rds-database-auto-running-stopper-state-machine-default-${key}-policy`);
-    cfnPolicy.addPropertyOverride('Description', 'rds database auto running stopper state machine default policy.');
 
     const execRole = new iam.Role(this, 'EventExecRole', {
       roleName: `db-auto-start-catch-event-${key}-role`,
