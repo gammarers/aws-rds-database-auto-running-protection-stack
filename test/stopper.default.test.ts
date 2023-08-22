@@ -16,6 +16,19 @@ describe('RDSDatabaseAutoRunningStopper Default Testing', () => {
 
   const template = Template.fromStack(stack);
 
+  it('Should match state machine', () => {
+    template.hasResourceProperties('AWS::StepFunctions::StateMachine', Match.objectEquals({
+      StateMachineName: Match.stringLikeRegexp('db-auto-start-stopper-.*-state-machine'),
+      DefinitionString: Match.anyValue(),
+      RoleArn: {
+        'Fn::GetAtt': [
+          Match.stringLikeRegexp('RDSDatabaseAutoRunningStopperStateMachineRole.*'),
+          'Arn',
+        ],
+      },
+    }));
+  });
+
   it('Should match state machine default policy', () => {
     template.hasResourceProperties('AWS::IAM::Policy', Match.objectEquals({
       PolicyName: Match.stringLikeRegexp('rds-database-auto-running-stopper-state-machine-default-.*-policy'),
