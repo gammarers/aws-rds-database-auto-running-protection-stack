@@ -153,7 +153,7 @@ exports[`RDSDatabaseAutoRunningStopper Default Testing Should match snapshot 1`]
               {
                 "Ref": "AWS::Partition",
               },
-              ":states:::aws-sdk:rds:describeDBInstances","Parameters":{}},"DBInstanceStatCheck":{"Type":"Choice","Choices":[{"Variable":"$[0].DbInstanceStatus","StringEquals":"available","Next":"StopDBInstance"}],"Default":"InstanceBootPending"},"InstanceBootPending":{"Type":"Wait","Seconds":600,"Next":"DBInstanceIdentifierPass"},"DBInstanceIdentifierPass":{"Type":"Pass","Parameters":{"detail":{"SourceIdentifier.$":"$[0].DbInstanceIdentifier"}},"Next":"StopDBInstance"},"StopDBInstance":{"Next":"Succeed","Type":"Task","Resource":"arn:",
+              ":states:::aws-sdk:rds:describeDBInstances","Parameters":{}},"DBInstanceIdentifierPass":{"Type":"Pass","Parameters":{"detail":{"SourceIdentifier.$":"$[0].DbInstanceIdentifier"}},"Next":"DescribeDBInstances"},"InstanceBootPending":{"Type":"Wait","Seconds":600,"Next":"DBInstanceIdentifierPass"},"DBInstanceStatCheck":{"Type":"Choice","Choices":[{"Variable":"$[0].DbInstanceStatus","StringEquals":"available","Next":"StopDBInstance"}],"Default":"InstanceBootPending"},"StopDBInstance":{"Next":"Succeed","Type":"Task","Resource":"arn:",
               {
                 "Ref": "AWS::Partition",
               },
@@ -165,7 +165,7 @@ exports[`RDSDatabaseAutoRunningStopper Default Testing Should match snapshot 1`]
               {
                 "Ref": "AWS::Partition",
               },
-              ":states:::aws-sdk:rds:describeDBClusters","Parameters":{}},"ClusterBootPending":{"Type":"Wait","Seconds":600,"Next":"DBClusterIdentifierPass"},"DBClusterIdentifierPass":{"Type":"Pass","Parameters":{"detail":{"SourceIdentifier.$":"$[0].DbClusterIdentifier"}},"Next":"StopDBCluster"}}}",
+              ":states:::aws-sdk:rds:describeDBClusters","Parameters":{}},"DBClusterIdentifierPass":{"Type":"Pass","Parameters":{"detail":{"SourceIdentifier.$":"$[0].DbClusterIdentifier"}},"Next":"DescribeDBClusters"},"ClusterBootPending":{"Type":"Wait","Seconds":600,"Next":"DBClusterIdentifierPass"}}}",
             ],
           ],
         },
