@@ -11,6 +11,17 @@ const project = new awscdk.AwsCdkConstructLibrary({
   repositoryUrl: 'https://github.com/higa/aws-rds-database-auto-running-stopper.git',
   releaseToNpm: false,
   npmAccess: javascript.NpmAccess.PUBLIC,
-  depsUpgrade: false,
+  minNodeVersion: '18.0.0',
+  workflowNodeVersion: '18.17.1',
+  depsUpgradeOptions: {
+    workflowOptions: {
+      labels: ['auto-approve', 'auto-merge'],
+      schedule: javascript.UpgradeDependenciesSchedule.expressions(['0 19 * * *']),
+    },
+  },
+  autoApproveOptions: {
+    secret: 'GITHUB_TOKEN',
+    allowedUsernames: ['yicr'],
+  },
 });
 project.synth();

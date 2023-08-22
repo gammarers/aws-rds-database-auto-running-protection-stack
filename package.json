@@ -17,11 +17,13 @@
     "package": "npx projen package",
     "package-all": "npx projen package-all",
     "post-compile": "npx projen post-compile",
+    "post-upgrade": "npx projen post-upgrade",
     "pre-compile": "npx projen pre-compile",
     "release": "npx projen release",
     "test": "npx projen test",
     "test:watch": "npx projen test:watch",
     "unbump": "npx projen unbump",
+    "upgrade": "npx projen upgrade",
     "watch": "npx projen watch",
     "projen": "npx projen"
   },
@@ -32,7 +34,7 @@
   },
   "devDependencies": {
     "@types/jest": "^29.5.3",
-    "@types/node": "^16",
+    "@types/node": "^18",
     "@typescript-eslint/eslint-plugin": "^5",
     "@typescript-eslint/parser": "^5",
     "aws-cdk-lib": "2.62.0",
@@ -48,6 +50,7 @@
     "jsii-docgen": "^9.1.2",
     "jsii-pacmak": "^1.87.0",
     "jsii-rosetta": "5.1.0",
+    "npm-check-updates": "^16",
     "projen": "^0.72.19",
     "standard-version": "^9",
     "ts-jest": "^29.1.1",
@@ -61,6 +64,9 @@
   "keywords": [
     "cdk"
   ],
+  "engines": {
+    "node": ">= 18.0.0"
+  },
   "main": "lib/index.js",
   "license": "Apache-2.0",
   "version": "0.0.0",
