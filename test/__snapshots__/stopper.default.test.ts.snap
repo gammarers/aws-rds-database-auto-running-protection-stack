@@ -200,7 +200,6 @@ exports[`RDSDatabaseAutoRunningStopper Default Testing Should match snapshot 1`]
     },
     "RDSDatabaseAutoRunningStopperStateMachineRoleDefaultPolicyC2EA889E": {
       "Properties": {
-        "Description": "rds database auto running stopper state machine default policy.",
         "PolicyDocument": {
           "Statement": [
             {
