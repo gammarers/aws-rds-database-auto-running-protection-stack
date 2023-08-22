@@ -9,7 +9,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
   name: 'aws-rds-database-auto-running-stopper',
   projenrcTs: true,
   repositoryUrl: 'https://github.com/higa/aws-rds-database-auto-running-stopper.git',
-  releaseToNpm: false,
+  releaseToNpm: true,
   npmAccess: javascript.NpmAccess.PUBLIC,
   minNodeVersion: '18.0.0',
   workflowNodeVersion: '18.17.1',
