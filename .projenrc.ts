@@ -2,10 +2,11 @@ import { awscdk, javascript } from 'projen';
 const project = new awscdk.AwsCdkConstructLibrary({
   author: 'yicr',
   authorAddress: 'yicr@users.noreply.github.com',
-  cdkVersion: '2.62.0',
+  cdkVersion: '2.80.0',
+  constructsVersion: '10.0.5',
   defaultReleaseBranch: 'main',
   typescriptVersion: '5.1.x',
-  jsiiVersion: '5.1.0',
+  jsiiVersion: '5.1.x',
   name: '@gammarer/aws-rds-database-auto-running-stopper',
   projenrcTs: true,
   repositoryUrl: 'https://github.com/yicr/aws-rds-database-auto-running-stopper.git',
@@ -13,7 +14,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
   npmAccess: javascript.NpmAccess.PUBLIC,
   majorVersion: 1,
   minNodeVersion: '18.0.0',
-  workflowNodeVersion: '18.17.1',
+  workflowNodeVersion: '20.11.x',
   depsUpgradeOptions: {
     workflowOptions: {
       labels: ['auto-approve', 'auto-merge'],

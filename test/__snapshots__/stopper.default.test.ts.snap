@@ -140,6 +140,7 @@ exports[`RDSDatabaseAutoRunningStopper Default Testing Should match snapshot 1`]
       "Type": "AWS::IAM::Policy",
     },
     "RDSDatabaseAutoRunningStopperStateMachine26D4B276": {
+      "DeletionPolicy": "Delete",
       "DependsOn": [
         "RDSDatabaseAutoRunningStopperStateMachineRoleDefaultPolicyC2EA889E",
         "RDSDatabaseAutoRunningStopperStateMachineRole6680D971",
@@ -178,6 +179,7 @@ exports[`RDSDatabaseAutoRunningStopper Default Testing Should match snapshot 1`]
         "StateMachineName": "db-auto-start-stopper-8866be9c-state-machine",
       },
       "Type": "AWS::StepFunctions::StateMachine",
+      "UpdateReplacePolicy": "Delete",
     },
     "RDSDatabaseAutoRunningStopperStateMachineRole6680D971": {
       "Properties": {
