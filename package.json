@@ -1,5 +1,6 @@
 {
   "name": "@gammarer/aws-rds-database-auto-running-stopper",
+  "description": "This construct is aws rds database or cluster auto running to stop.",
   "repository": {
     "type": "git",
     "url": "https://github.com/gammarer/aws-rds-database-auto-running-stopper.git"
