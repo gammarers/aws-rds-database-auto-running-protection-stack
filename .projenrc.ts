@@ -8,6 +8,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
   typescriptVersion: '5.1.x',
   jsiiVersion: '5.1.x',
   name: '@gammarer/aws-rds-database-auto-running-stopper',
+  keywords: ['aws', 'cdk', 'aws-cdk', 'rds', 'run', 'auto', 'stop'],
   projenrcTs: true,
   repositoryUrl: 'https://github.com/gammarer/aws-rds-database-auto-running-stopper.git',
   authorOrganization: true,

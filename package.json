@@ -61,7 +61,13 @@
     "constructs": "^10.0.5"
   },
   "keywords": [
-    "cdk"
+    "auto",
+    "aws",
+    "aws-cdk",
+    "cdk",
+    "rds",
+    "run",
+    "stop"
   ],
   "engines": {
     "node": ">= 18.0.0"
