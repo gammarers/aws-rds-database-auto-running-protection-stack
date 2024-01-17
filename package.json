@@ -1,8 +1,9 @@
 {
   "name": "@gammarer/aws-rds-database-auto-running-stopper",
+  "description": "This construct is aws rds database or cluster auto running to stop.",
   "repository": {
     "type": "git",
-    "url": "https://github.com/yicr/aws-rds-database-auto-running-stopper.git"
+    "url": "https://github.com/gammarer/aws-rds-database-auto-running-stopper.git"
   },
   "scripts": {
     "build": "npx projen build",
@@ -31,7 +32,7 @@
   "author": {
     "name": "yicr",
     "email": "yicr@users.noreply.github.com",
-    "organization": false
+    "organization": true
   },
   "devDependencies": {
     "@types/jest": "^29.5.11",
@@ -61,7 +62,13 @@
     "constructs": "^10.0.5"
   },
   "keywords": [
-    "cdk"
+    "auto",
+    "aws",
+    "aws-cdk",
+    "cdk",
+    "rds",
+    "run",
+    "stop"
   ],
   "engines": {
     "node": ">= 18.0.0"
