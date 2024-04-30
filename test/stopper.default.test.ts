@@ -1,28 +1,27 @@
-import { App, Stack } from 'aws-cdk-lib';
+import { App } from 'aws-cdk-lib';
 import { Match, Template } from 'aws-cdk-lib/assertions';
-import { RDSDatabaseAutoRunningStopper } from '../src';
+import { RDSDatabaseAutoRunningStopStack } from '../src';
 
-describe('RDSDatabaseAutoRunningStopper Default Testing', () => {
+describe('RDSDatabaseAutoRunningStopStack Default Testing', () => {
 
   const app = new App();
-  const stack = new Stack(app, 'TestingStack', {
+
+  const stack = new RDSDatabaseAutoRunningStopStack(app, 'RDSDatabaseAutoRunningStopStack', {
     env: {
       account: '123456789012',
       region: 'us-east-1',
     },
   });
 
-  new RDSDatabaseAutoRunningStopper(stack, 'RDSDatabaseAutoRunningStopper');
-
   const template = Template.fromStack(stack);
 
   it('Should match state machine', () => {
     template.hasResourceProperties('AWS::StepFunctions::StateMachine', Match.objectEquals({
-      StateMachineName: Match.stringLikeRegexp('db-auto-start-stopper-.*-state-machine'),
+      StateMachineName: Match.stringLikeRegexp('db-auto-start-stop-.*-state-machine'),
       DefinitionString: Match.anyValue(),
       RoleArn: {
         'Fn::GetAtt': [
-          Match.stringLikeRegexp('RDSDatabaseAutoRunningStopperStateMachineRole.*'),
+          Match.stringLikeRegexp('StateMachineRole.*'),
           'Arn',
         ],
       },
@@ -31,7 +30,7 @@ describe('RDSDatabaseAutoRunningStopper Default Testing', () => {
 
   it('Should match state machine default policy', () => {
     template.hasResourceProperties('AWS::IAM::Policy', Match.objectEquals({
-      PolicyName: Match.stringLikeRegexp('rds-database-auto-running-stopper-state-machine-default-.*-policy'),
+      PolicyName: Match.stringLikeRegexp('rds-database-auto-running-stop-state-machine-default-.*-policy'),
       PolicyDocument: {
         Version: '2012-10-17',
         Statement: Match.arrayEquals([
@@ -59,7 +58,7 @@ describe('RDSDatabaseAutoRunningStopper Default Testing', () => {
       },
       Roles: [
         {
-          Ref: Match.stringLikeRegexp('RDSDatabaseAutoRunningStopperStateMachineRole.*'),
+          Ref: Match.stringLikeRegexp('StateMachineRole.*'),
         },
       ],
     }));
@@ -67,7 +66,7 @@ describe('RDSDatabaseAutoRunningStopper Default Testing', () => {
 
   it('Should match state machine iam role', () => {
     template.hasResourceProperties('AWS::IAM::Role', Match.objectEquals({
-      RoleName: Match.stringLikeRegexp('rds-database-auto-running-stopper-state-machine-.*-role'),
+      RoleName: Match.stringLikeRegexp('rds-database-auto-running-stop-state-machine-.*-role'),
       Description: Match.anyValue(),
       AssumeRolePolicyDocument: {
         Version: '2012-10-17',
@@ -110,7 +109,7 @@ describe('RDSDatabaseAutoRunningStopper Default Testing', () => {
                 Effect: 'Allow',
                 Action: 'states:StartExecution',
                 Resource: {
-                  Ref: Match.stringLikeRegexp('RDSDatabaseAutoRunningStopperStateMachine.*'),
+                  Ref: Match.stringLikeRegexp('StateMachine.*'),
                 },
               }),
             ],
@@ -135,12 +134,12 @@ describe('RDSDatabaseAutoRunningStopper Default Testing', () => {
       Targets: Match.arrayEquals([
         {
           Arn: {
-            Ref: Match.stringLikeRegexp('RDSDatabaseAutoRunningStopperStateMachine.*'),
+            Ref: Match.stringLikeRegexp('StateMachine.*'),
           },
           Id: Match.anyValue(),
           RoleArn: {
             'Fn::GetAtt': Match.arrayEquals([
-              Match.stringLikeRegexp('RDSDatabaseAutoRunningStopperEventExecRole.*'),
+              Match.stringLikeRegexp('EventExecRole.*'),
               'Arn',
             ]),
           },
@@ -164,12 +163,12 @@ describe('RDSDatabaseAutoRunningStopper Default Testing', () => {
       Targets: Match.arrayEquals([
         {
           Arn: {
-            Ref: Match.stringLikeRegexp('RDSDatabaseAutoRunningStopperStateMachine.*'),
+            Ref: Match.stringLikeRegexp('StateMachine.*'),
           },
           Id: Match.anyValue(),
           RoleArn: {
             'Fn::GetAtt': Match.arrayEquals([
-              Match.stringLikeRegexp('RDSDatabaseAutoRunningStopperEventExecRole.*'),
+              Match.stringLikeRegexp('EventExecRole.*'),
               'Arn',
             ]),
           },
