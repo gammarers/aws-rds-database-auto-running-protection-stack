@@ -1,9 +1,9 @@
 {
-  "name": "@gammarer/aws-rds-database-auto-running-stopper",
+  "name": "@gammarers/aws-rds-database-auto-running-stop-stack",
   "description": "This construct is aws rds database or cluster auto running to stop.",
   "repository": {
     "type": "git",
-    "url": "https://github.com/gammarer/aws-rds-database-auto-running-stopper.git"
+    "url": "https://github.com/gammarers/aws-rds-database-auto-running-stop-stack.git"
   },
   "scripts": {
     "build": "npx projen build",
