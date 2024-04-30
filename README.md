@@ -34,7 +34,7 @@ yarn add @gammarers/aws-rds-database-auto-running-stop-stack
 ```typescript
 import { BudgetsNotification } from '@gammarers/aws-rds-database-auto-running-stop-stack';
 
-new RDSDatabaseAutoRunningStopStack(stack, 'RDSDatabaseAutoRunningStopStack');
+new RDSDatabaseAutoRunningStopStack(app, 'RDSDatabaseAutoRunningStopStack');
 
 ```
 
