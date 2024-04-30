@@ -1,5 +1,5 @@
 import * as crypto from 'crypto';
-import { Duration, Names, Stack } from 'aws-cdk-lib';
+import { Duration, Names, Stack, StackProps } from 'aws-cdk-lib';
 import * as events from 'aws-cdk-lib/aws-events';
 import * as targets from 'aws-cdk-lib/aws-events-targets';
 import * as iam from 'aws-cdk-lib/aws-iam';
@@ -7,9 +7,9 @@ import * as sfn from 'aws-cdk-lib/aws-stepfunctions';
 import * as tasks from 'aws-cdk-lib/aws-stepfunctions-tasks';
 import { Construct } from 'constructs';
 
-export class RDSDatabaseAutoRunningStopper extends Construct {
-  constructor(scope: Construct, id: string) {
-    super(scope, id);
+export class RDSDatabaseAutoRunningStopStack extends Stack {
+  constructor(scope: Construct, id: string, props?: StackProps) {
+    super(scope, id, props);
 
     const account = Stack.of(this).account;
     //const region = Stack.of(this).region;
@@ -107,17 +107,17 @@ export class RDSDatabaseAutoRunningStopper extends Construct {
 
     // 👇StepFunctions
     const stateMachine = new sfn.StateMachine(this, 'StateMachine', {
-      stateMachineName: `db-auto-start-stopper-${key}-state-machine`,
+      stateMachineName: `db-auto-start-stop-${key}-state-machine`,
       //role: machineRole,
       definition,
     });
     const role = stateMachine.node.findChild('Role') as iam.Role;
     const cfnRole = role.node.defaultChild as iam.CfnRole;
-    cfnRole.addPropertyOverride('RoleName', `rds-database-auto-running-stopper-state-machine-${key}-role`);
-    cfnRole.addPropertyOverride('Description', 'rds database auto running stopper state machine role.');
+    cfnRole.addPropertyOverride('RoleName', `rds-database-auto-running-stop-state-machine-${key}-role`);
+    cfnRole.addPropertyOverride('Description', 'rds database auto running stop state machine role.');
     const policy = role.node.findChild('DefaultPolicy') as iam.Policy;
     const cfnPolicy = policy.node.defaultChild as iam.CfnPolicy;
-    cfnPolicy.addPropertyOverride('PolicyName', `rds-database-auto-running-stopper-state-machine-default-${key}-policy`);
+    cfnPolicy.addPropertyOverride('PolicyName', `rds-database-auto-running-stop-state-machine-default-${key}-policy`);
 
     const execRole = new iam.Role(this, 'EventExecRole', {
       roleName: `db-auto-start-catch-event-${key}-role`,
