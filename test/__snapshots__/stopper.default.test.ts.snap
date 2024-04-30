@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`RDSDatabaseAutoRunningStopper Default Testing Should match snapshot 1`] = `
+exports[`RDSDatabaseAutoRunningStopStack Default Testing Should match snapshot 1`] = `
 {
   "Parameters": {
     "BootstrapVersion": {
@@ -10,7 +10,7 @@ exports[`RDSDatabaseAutoRunningStopper Default Testing Should match snapshot 1`]
     },
   },
   "Resources": {
-    "RDSDatabaseAutoRunningStopperDBClusterEvent7D30DC29": {
+    "DBClusterEvent9BF26607": {
       "Properties": {
         "Description": "db cluster start event catch rule",
         "EventPattern": {
@@ -26,17 +26,17 @@ exports[`RDSDatabaseAutoRunningStopper Default Testing Should match snapshot 1`]
             "aws.rds",
           ],
         },
-        "Name": "db-cluster-start-event-catch-8866be9c-rule",
+        "Name": "db-cluster-start-event-catch-2d56cf03-rule",
         "State": "ENABLED",
         "Targets": [
           {
             "Arn": {
-              "Ref": "RDSDatabaseAutoRunningStopperStateMachine26D4B276",
+              "Ref": "StateMachine2E01A3A5",
             },
             "Id": "Target0",
             "RoleArn": {
               "Fn::GetAtt": [
-                "RDSDatabaseAutoRunningStopperEventExecRoleDE37BA84",
+                "EventExecRole849D1777",
                 "Arn",
               ],
             },
@@ -45,7 +45,7 @@ exports[`RDSDatabaseAutoRunningStopper Default Testing Should match snapshot 1`]
       },
       "Type": "AWS::Events::Rule",
     },
-    "RDSDatabaseAutoRunningStopperDBInstanceEventAFE3214B": {
+    "DBInstanceEvent92EBE80A": {
       "Properties": {
         "Description": "db instance start event catch rule.",
         "EventPattern": {
@@ -61,17 +61,17 @@ exports[`RDSDatabaseAutoRunningStopper Default Testing Should match snapshot 1`]
             "aws.rds",
           ],
         },
-        "Name": "db-instance-start-event-catch-8866be9c-rule",
+        "Name": "db-instance-start-event-catch-2d56cf03-rule",
         "State": "ENABLED",
         "Targets": [
           {
             "Arn": {
-              "Ref": "RDSDatabaseAutoRunningStopperStateMachine26D4B276",
+              "Ref": "StateMachine2E01A3A5",
             },
             "Id": "Target0",
             "RoleArn": {
               "Fn::GetAtt": [
-                "RDSDatabaseAutoRunningStopperEventExecRoleDE37BA84",
+                "EventExecRole849D1777",
                 "Arn",
               ],
             },
@@ -80,7 +80,7 @@ exports[`RDSDatabaseAutoRunningStopper Default Testing Should match snapshot 1`]
       },
       "Type": "AWS::Events::Rule",
     },
-    "RDSDatabaseAutoRunningStopperEventExecRoleDE37BA84": {
+    "EventExecRole849D1777": {
       "Properties": {
         "AssumeRolePolicyDocument": {
           "Statement": [
@@ -103,7 +103,7 @@ exports[`RDSDatabaseAutoRunningStopper Default Testing Should match snapshot 1`]
                   "Action": "states:StartExecution",
                   "Effect": "Allow",
                   "Resource": {
-                    "Ref": "RDSDatabaseAutoRunningStopperStateMachine26D4B276",
+                    "Ref": "StateMachine2E01A3A5",
                   },
                 },
               ],
@@ -112,11 +112,11 @@ exports[`RDSDatabaseAutoRunningStopper Default Testing Should match snapshot 1`]
             "PolicyName": "state-machine-exec",
           },
         ],
-        "RoleName": "db-auto-start-catch-event-8866be9c-role",
+        "RoleName": "db-auto-start-catch-event-2d56cf03-role",
       },
       "Type": "AWS::IAM::Role",
     },
-    "RDSDatabaseAutoRunningStopperEventExecRoleDefaultPolicy7B7A6667": {
+    "EventExecRoleDefaultPolicyB3284D41": {
       "Properties": {
         "PolicyDocument": {
           "Statement": [
@@ -124,26 +124,26 @@ exports[`RDSDatabaseAutoRunningStopper Default Testing Should match snapshot 1`]
               "Action": "states:StartExecution",
               "Effect": "Allow",
               "Resource": {
-                "Ref": "RDSDatabaseAutoRunningStopperStateMachine26D4B276",
+                "Ref": "StateMachine2E01A3A5",
               },
             },
           ],
           "Version": "2012-10-17",
         },
-        "PolicyName": "RDSDatabaseAutoRunningStopperEventExecRoleDefaultPolicy7B7A6667",
+        "PolicyName": "EventExecRoleDefaultPolicyB3284D41",
         "Roles": [
           {
-            "Ref": "RDSDatabaseAutoRunningStopperEventExecRoleDE37BA84",
+            "Ref": "EventExecRole849D1777",
           },
         ],
       },
       "Type": "AWS::IAM::Policy",
     },
-    "RDSDatabaseAutoRunningStopperStateMachine26D4B276": {
+    "StateMachine2E01A3A5": {
       "DeletionPolicy": "Delete",
       "DependsOn": [
-        "RDSDatabaseAutoRunningStopperStateMachineRoleDefaultPolicyC2EA889E",
-        "RDSDatabaseAutoRunningStopperStateMachineRole6680D971",
+        "StateMachineRoleDefaultPolicyDF1E6607",
+        "StateMachineRoleB840431D",
       ],
       "Properties": {
         "DefinitionString": {
@@ -172,16 +172,16 @@ exports[`RDSDatabaseAutoRunningStopper Default Testing Should match snapshot 1`]
         },
         "RoleArn": {
           "Fn::GetAtt": [
-            "RDSDatabaseAutoRunningStopperStateMachineRole6680D971",
+            "StateMachineRoleB840431D",
             "Arn",
           ],
         },
-        "StateMachineName": "db-auto-start-stopper-8866be9c-state-machine",
+        "StateMachineName": "db-auto-start-stop-2d56cf03-state-machine",
       },
       "Type": "AWS::StepFunctions::StateMachine",
       "UpdateReplacePolicy": "Delete",
     },
-    "RDSDatabaseAutoRunningStopperStateMachineRole6680D971": {
+    "StateMachineRoleB840431D": {
       "Properties": {
         "AssumeRolePolicyDocument": {
           "Statement": [
@@ -195,12 +195,12 @@ exports[`RDSDatabaseAutoRunningStopper Default Testing Should match snapshot 1`]
           ],
           "Version": "2012-10-17",
         },
-        "Description": "rds database auto running stopper state machine role.",
-        "RoleName": "rds-database-auto-running-stopper-state-machine-8866be9c-role",
+        "Description": "rds database auto running stop state machine role.",
+        "RoleName": "rds-database-auto-running-stop-state-machine-2d56cf03-role",
       },
       "Type": "AWS::IAM::Role",
     },
-    "RDSDatabaseAutoRunningStopperStateMachineRoleDefaultPolicyC2EA889E": {
+    "StateMachineRoleDefaultPolicyDF1E6607": {
       "Properties": {
         "PolicyDocument": {
           "Statement": [
@@ -227,10 +227,10 @@ exports[`RDSDatabaseAutoRunningStopper Default Testing Should match snapshot 1`]
           ],
           "Version": "2012-10-17",
         },
-        "PolicyName": "rds-database-auto-running-stopper-state-machine-default-8866be9c-policy",
+        "PolicyName": "rds-database-auto-running-stop-state-machine-default-2d56cf03-policy",
         "Roles": [
           {
-            "Ref": "RDSDatabaseAutoRunningStopperStateMachineRole6680D971",
+            "Ref": "StateMachineRoleB840431D",
           },
         ],
       },
