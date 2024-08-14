@@ -23,16 +23,34 @@ This construct creating resource list.
 
 ### TypeScript
 
+#### install by npm
+
 ```shell
 npm install @gammarers/aws-rds-database-auto-running-stop-stack
-# or
+```
+
+#### install by yarn
+
+```shell
 yarn add @gammarers/aws-rds-database-auto-running-stop-stack
+```
+
+#### install by pnpm
+
+```shell
+pnpm add @gammarers/aws-rds-database-auto-running-stop-stack
+```
+
+#### install by bun
+
+```shell
+bun add @gammarers/aws-rds-database-auto-running-stop-stack
 ```
 
 ## Example
 
 ```typescript
-import { BudgetsNotification } from '@gammarers/aws-rds-database-auto-running-stop-stack';
+import { RDSDatabaseAutoRunningStopStack } from '@gammarers/aws-rds-database-auto-running-stop-stack';
 
 new RDSDatabaseAutoRunningStopStack(app, 'RDSDatabaseAutoRunningStopStack');
 
