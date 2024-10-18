@@ -12,13 +12,13 @@ export interface TargetResourceProperty {
   readonly tagValues: string[];
 }
 
-export interface RDSDatabaseAutoRunningStopStackProps extends StackProps {
+export interface RDSDatabaseAutoRunningProtectionStackProps extends StackProps {
   readonly targetResource: TargetResourceProperty;
   readonly enableRule?: boolean;
 }
 
-export class RDSDatabaseAutoRunningStopStack extends Stack {
-  constructor(scope: Construct, id: string, props: RDSDatabaseAutoRunningStopStackProps) {
+export class RDSDatabaseAutoRunningProtectionStack extends Stack {
+  constructor(scope: Construct, id: string, props: RDSDatabaseAutoRunningProtectionStackProps) {
     super(scope, id, props);
 
     const account = Stack.of(this).account;

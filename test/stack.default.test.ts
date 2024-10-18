@@ -1,12 +1,12 @@
 import { App } from 'aws-cdk-lib';
 import { Match, Template } from 'aws-cdk-lib/assertions';
-import { RDSDatabaseAutoRunningStopStack } from '../src';
+import { RDSDatabaseAutoRunningProtectionStack } from '../src';
 
-describe('RDSDatabaseAutoRunningStopStack Default Testing', () => {
+describe('Stack Default Testing', () => {
 
   const app = new App();
 
-  const stack = new RDSDatabaseAutoRunningStopStack(app, 'RDSDatabaseAutoRunningStopStack', {
+  const stack = new RDSDatabaseAutoRunningProtectionStack(app, 'RDSDatabaseAutoRunningProtectionStack', {
     env: {
       account: '123456789012',
       region: 'us-east-1',

@@ -1,12 +1,12 @@
 import { App } from 'aws-cdk-lib';
 import { Template } from 'aws-cdk-lib/assertions';
-import { RDSDatabaseAutoRunningStopStack } from '../src';
+import { RDSDatabaseAutoRunningProtectionStack } from '../src';
 
-describe('RDSDatabaseAutoRunningStopStack Disabble Testing', () => {
+describe('Stack Disabble Testing', () => {
 
   const app = new App();
 
-  const stack = new RDSDatabaseAutoRunningStopStack(app, 'RDSDatabaseAutoRunningStopStack', {
+  const stack = new RDSDatabaseAutoRunningProtectionStack(app, 'RDSDatabaseAutoRunningProtectionStack', {
     enableRule: false,
     targetResource: {
       tagKey: 'AutoRunningStop',

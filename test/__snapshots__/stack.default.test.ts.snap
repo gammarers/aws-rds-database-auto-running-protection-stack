@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`RDSDatabaseAutoRunningStopStack Default Testing Should match snapshot 1`] = `
+exports[`Stack Default Testing Should match snapshot 1`] = `
 {
   "Parameters": {
     "BootstrapVersion": {
@@ -26,7 +26,7 @@ exports[`RDSDatabaseAutoRunningStopStack Default Testing Should match snapshot 1
             "aws.rds",
           ],
         },
-        "Name": "rds-db-cluster-running-event-catch-b3cb1157-rule",
+        "Name": "rds-db-cluster-running-event-catch-6b53905e-rule",
         "State": "ENABLED",
         "Targets": [
           {
@@ -67,7 +67,7 @@ exports[`RDSDatabaseAutoRunningStopStack Default Testing Should match snapshot 1
             "aws.rds",
           ],
         },
-        "Name": "rds-db-instance-running-event-catch-b3cb1157-rule",
+        "Name": "rds-db-instance-running-event-catch-6b53905e-rule",
         "State": "ENABLED",
         "Targets": [
           {
@@ -124,7 +124,7 @@ exports[`RDSDatabaseAutoRunningStopStack Default Testing Should match snapshot 1
             "PolicyName": "state-machine-exec",
           },
         ],
-        "RoleName": "rds-db-auto-running-catch-event-b3cb1157-role",
+        "RoleName": "rds-db-auto-running-catch-event-6b53905e-role",
       },
       "Type": "AWS::IAM::Role",
     },
@@ -188,7 +188,7 @@ exports[`RDSDatabaseAutoRunningStopStack Default Testing Should match snapshot 1
             "Arn",
           ],
         },
-        "StateMachineName": "rds-db-auto-running-stop-b3cb1157-state-machine",
+        "StateMachineName": "rds-db-auto-running-stop-6b53905e-state-machine",
       },
       "Type": "AWS::StepFunctions::StateMachine",
       "UpdateReplacePolicy": "Delete",
@@ -208,7 +208,7 @@ exports[`RDSDatabaseAutoRunningStopStack Default Testing Should match snapshot 1
           "Version": "2012-10-17",
         },
         "Description": "rds database auto running stop state machine role.",
-        "RoleName": "rds-db-auto-running-stop-state-machine-b3cb1157-role",
+        "RoleName": "rds-db-auto-running-stop-state-machine-6b53905e-role",
       },
       "Type": "AWS::IAM::Role",
     },
