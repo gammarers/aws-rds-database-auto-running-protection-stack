@@ -31,6 +31,10 @@ export class RDSDatabaseAutoRunningStopStack extends Stack {
 
     const succeed = new sfn.Succeed(this, 'Succeed');
 
+    const startingWait = new sfn.Wait(this, 'StartingWait', {
+      time: sfn.WaitTime.duration(Duration.minutes(1)),
+    });
+
     // Status definition
     const statusesDefinition: sfn.Pass = new sfn.Pass(this, 'StatusesDefinition', {
       result: sfn.Result.fromObject([
@@ -39,6 +43,8 @@ export class RDSDatabaseAutoRunningStopStack extends Stack {
       ]),
       resultPath: '$.definition.statuses',
     });
+
+    startingWait.next(statusesDefinition);
 
     const describeDBInstancesTask = new tasks.CallAwsService(this, 'DescribeDBInstances', {
       iamResources: [`arn:aws:rds:*:${account}:db:*`],
@@ -214,7 +220,7 @@ export class RDSDatabaseAutoRunningStopStack extends Stack {
     // 👇 StepFunctions
     const stateMachine = new sfn.StateMachine(this, 'StateMachine', {
       stateMachineName: `rds-db-auto-running-stop-${key}-state-machine`,
-      definitionBody: sfn.DefinitionBody.fromChainable(statusesDefinition),
+      definitionBody: sfn.DefinitionBody.fromChainable(startingWait),
     });
     const role = stateMachine.node.findChild('Role') as iam.Role;
     const cfnRole = role.node.defaultChild as iam.CfnRole;
