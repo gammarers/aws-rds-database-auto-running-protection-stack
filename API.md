@@ -2,39 +2,39 @@
 
 ## Constructs <a name="Constructs" id="Constructs"></a>
 
-### RDSDatabaseAutoRunningStopStack <a name="RDSDatabaseAutoRunningStopStack" id="@gammarers/aws-rds-database-auto-running-stop-stack.RDSDatabaseAutoRunningStopStack"></a>
+### RDSDatabaseAutoRunningProtectionStack <a name="RDSDatabaseAutoRunningProtectionStack" id="@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStack"></a>
 
-#### Initializers <a name="Initializers" id="@gammarers/aws-rds-database-auto-running-stop-stack.RDSDatabaseAutoRunningStopStack.Initializer"></a>
+#### Initializers <a name="Initializers" id="@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStack.Initializer"></a>
 
 ```typescript
-import { RDSDatabaseAutoRunningStopStack } from '@gammarers/aws-rds-database-auto-running-stop-stack'
+import { RDSDatabaseAutoRunningProtectionStack } from '@gammarers/aws-rds-database-auto-running-protection-stack'
 
-new RDSDatabaseAutoRunningStopStack(scope: Construct, id: string, props?: StackProps)
+new RDSDatabaseAutoRunningProtectionStack(scope: Construct, id: string, props: RDSDatabaseAutoRunningProtectionStackProps)
 ```
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@gammarers/aws-rds-database-auto-running-stop-stack.RDSDatabaseAutoRunningStopStack.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
-| <code><a href="#@gammarers/aws-rds-database-auto-running-stop-stack.RDSDatabaseAutoRunningStopStack.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#@gammarers/aws-rds-database-auto-running-stop-stack.RDSDatabaseAutoRunningStopStack.Initializer.parameter.props">props</a></code> | <code>aws-cdk-lib.StackProps</code> | *No description.* |
+| <code><a href="#@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStack.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStack.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStack.Initializer.parameter.props">props</a></code> | <code><a href="#@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStackProps">RDSDatabaseAutoRunningProtectionStackProps</a></code> | *No description.* |
 
 ---
 
-##### `scope`<sup>Required</sup> <a name="scope" id="@gammarers/aws-rds-database-auto-running-stop-stack.RDSDatabaseAutoRunningStopStack.Initializer.parameter.scope"></a>
+##### `scope`<sup>Required</sup> <a name="scope" id="@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStack.Initializer.parameter.scope"></a>
 
 - *Type:* constructs.Construct
 
 ---
 
-##### `id`<sup>Required</sup> <a name="id" id="@gammarers/aws-rds-database-auto-running-stop-stack.RDSDatabaseAutoRunningStopStack.Initializer.parameter.id"></a>
+##### `id`<sup>Required</sup> <a name="id" id="@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStack.Initializer.parameter.id"></a>
 
 - *Type:* string
 
 ---
 
-##### `props`<sup>Optional</sup> <a name="props" id="@gammarers/aws-rds-database-auto-running-stop-stack.RDSDatabaseAutoRunningStopStack.Initializer.parameter.props"></a>
+##### `props`<sup>Required</sup> <a name="props" id="@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStack.Initializer.parameter.props"></a>
 
-- *Type:* aws-cdk-lib.StackProps
+- *Type:* <a href="#@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStackProps">RDSDatabaseAutoRunningProtectionStackProps</a>
 
 ---
 
@@ -42,25 +42,25 @@ new RDSDatabaseAutoRunningStopStack(scope: Construct, id: string, props?: StackP
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#@gammarers/aws-rds-database-auto-running-stop-stack.RDSDatabaseAutoRunningStopStack.toString">toString</a></code> | Returns a string representation of this construct. |
-| <code><a href="#@gammarers/aws-rds-database-auto-running-stop-stack.RDSDatabaseAutoRunningStopStack.addDependency">addDependency</a></code> | Add a dependency between this stack and another stack. |
-| <code><a href="#@gammarers/aws-rds-database-auto-running-stop-stack.RDSDatabaseAutoRunningStopStack.addMetadata">addMetadata</a></code> | Adds an arbitary key-value pair, with information you want to record about the stack. |
-| <code><a href="#@gammarers/aws-rds-database-auto-running-stop-stack.RDSDatabaseAutoRunningStopStack.addTransform">addTransform</a></code> | Add a Transform to this stack. A Transform is a macro that AWS CloudFormation uses to process your template. |
-| <code><a href="#@gammarers/aws-rds-database-auto-running-stop-stack.RDSDatabaseAutoRunningStopStack.exportStringListValue">exportStringListValue</a></code> | Create a CloudFormation Export for a string list value. |
-| <code><a href="#@gammarers/aws-rds-database-auto-running-stop-stack.RDSDatabaseAutoRunningStopStack.exportValue">exportValue</a></code> | Create a CloudFormation Export for a string value. |
-| <code><a href="#@gammarers/aws-rds-database-auto-running-stop-stack.RDSDatabaseAutoRunningStopStack.formatArn">formatArn</a></code> | Creates an ARN from components. |
-| <code><a href="#@gammarers/aws-rds-database-auto-running-stop-stack.RDSDatabaseAutoRunningStopStack.getLogicalId">getLogicalId</a></code> | Allocates a stack-unique CloudFormation-compatible logical identity for a specific resource. |
-| <code><a href="#@gammarers/aws-rds-database-auto-running-stop-stack.RDSDatabaseAutoRunningStopStack.regionalFact">regionalFact</a></code> | Look up a fact value for the given fact for the region of this stack. |
-| <code><a href="#@gammarers/aws-rds-database-auto-running-stop-stack.RDSDatabaseAutoRunningStopStack.renameLogicalId">renameLogicalId</a></code> | Rename a generated logical identities. |
-| <code><a href="#@gammarers/aws-rds-database-auto-running-stop-stack.RDSDatabaseAutoRunningStopStack.reportMissingContextKey">reportMissingContextKey</a></code> | Indicate that a context key was expected. |
-| <code><a href="#@gammarers/aws-rds-database-auto-running-stop-stack.RDSDatabaseAutoRunningStopStack.resolve">resolve</a></code> | Resolve a tokenized value in the context of the current stack. |
-| <code><a href="#@gammarers/aws-rds-database-auto-running-stop-stack.RDSDatabaseAutoRunningStopStack.splitArn">splitArn</a></code> | Splits the provided ARN into its components. |
-| <code><a href="#@gammarers/aws-rds-database-auto-running-stop-stack.RDSDatabaseAutoRunningStopStack.toJsonString">toJsonString</a></code> | Convert an object, potentially containing tokens, to a JSON string. |
-| <code><a href="#@gammarers/aws-rds-database-auto-running-stop-stack.RDSDatabaseAutoRunningStopStack.toYamlString">toYamlString</a></code> | Convert an object, potentially containing tokens, to a YAML string. |
+| <code><a href="#@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStack.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStack.addDependency">addDependency</a></code> | Add a dependency between this stack and another stack. |
+| <code><a href="#@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStack.addMetadata">addMetadata</a></code> | Adds an arbitary key-value pair, with information you want to record about the stack. |
+| <code><a href="#@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStack.addTransform">addTransform</a></code> | Add a Transform to this stack. A Transform is a macro that AWS CloudFormation uses to process your template. |
+| <code><a href="#@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStack.exportStringListValue">exportStringListValue</a></code> | Create a CloudFormation Export for a string list value. |
+| <code><a href="#@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStack.exportValue">exportValue</a></code> | Create a CloudFormation Export for a string value. |
+| <code><a href="#@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStack.formatArn">formatArn</a></code> | Creates an ARN from components. |
+| <code><a href="#@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStack.getLogicalId">getLogicalId</a></code> | Allocates a stack-unique CloudFormation-compatible logical identity for a specific resource. |
+| <code><a href="#@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStack.regionalFact">regionalFact</a></code> | Look up a fact value for the given fact for the region of this stack. |
+| <code><a href="#@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStack.renameLogicalId">renameLogicalId</a></code> | Rename a generated logical identities. |
+| <code><a href="#@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStack.reportMissingContextKey">reportMissingContextKey</a></code> | Indicate that a context key was expected. |
+| <code><a href="#@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStack.resolve">resolve</a></code> | Resolve a tokenized value in the context of the current stack. |
+| <code><a href="#@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStack.splitArn">splitArn</a></code> | Splits the provided ARN into its components. |
+| <code><a href="#@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStack.toJsonString">toJsonString</a></code> | Convert an object, potentially containing tokens, to a JSON string. |
+| <code><a href="#@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStack.toYamlString">toYamlString</a></code> | Convert an object, potentially containing tokens, to a YAML string. |
 
 ---
 
-##### `toString` <a name="toString" id="@gammarers/aws-rds-database-auto-running-stop-stack.RDSDatabaseAutoRunningStopStack.toString"></a>
+##### `toString` <a name="toString" id="@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStack.toString"></a>
 
 ```typescript
 public toString(): string
@@ -68,7 +68,7 @@ public toString(): string
 
 Returns a string representation of this construct.
 
-##### `addDependency` <a name="addDependency" id="@gammarers/aws-rds-database-auto-running-stop-stack.RDSDatabaseAutoRunningStopStack.addDependency"></a>
+##### `addDependency` <a name="addDependency" id="@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStack.addDependency"></a>
 
 ```typescript
 public addDependency(target: Stack, reason?: string): void
@@ -79,19 +79,19 @@ Add a dependency between this stack and another stack.
 This can be used to define dependencies between any two stacks within an
 app, and also supports nested stacks.
 
-###### `target`<sup>Required</sup> <a name="target" id="@gammarers/aws-rds-database-auto-running-stop-stack.RDSDatabaseAutoRunningStopStack.addDependency.parameter.target"></a>
+###### `target`<sup>Required</sup> <a name="target" id="@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStack.addDependency.parameter.target"></a>
 
 - *Type:* aws-cdk-lib.Stack
 
 ---
 
-###### `reason`<sup>Optional</sup> <a name="reason" id="@gammarers/aws-rds-database-auto-running-stop-stack.RDSDatabaseAutoRunningStopStack.addDependency.parameter.reason"></a>
+###### `reason`<sup>Optional</sup> <a name="reason" id="@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStack.addDependency.parameter.reason"></a>
 
 - *Type:* string
 
 ---
 
-##### `addMetadata` <a name="addMetadata" id="@gammarers/aws-rds-database-auto-running-stop-stack.RDSDatabaseAutoRunningStopStack.addMetadata"></a>
+##### `addMetadata` <a name="addMetadata" id="@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStack.addMetadata"></a>
 
 ```typescript
 public addMetadata(key: string, value: any): void
@@ -103,19 +103,19 @@ These get translated to the Metadata section of the generated template.
 
 > [https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html)
 
-###### `key`<sup>Required</sup> <a name="key" id="@gammarers/aws-rds-database-auto-running-stop-stack.RDSDatabaseAutoRunningStopStack.addMetadata.parameter.key"></a>
+###### `key`<sup>Required</sup> <a name="key" id="@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStack.addMetadata.parameter.key"></a>
 
 - *Type:* string
 
 ---
 
-###### `value`<sup>Required</sup> <a name="value" id="@gammarers/aws-rds-database-auto-running-stop-stack.RDSDatabaseAutoRunningStopStack.addMetadata.parameter.value"></a>
+###### `value`<sup>Required</sup> <a name="value" id="@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStack.addMetadata.parameter.value"></a>
 
 - *Type:* any
 
 ---
 
-##### `addTransform` <a name="addTransform" id="@gammarers/aws-rds-database-auto-running-stop-stack.RDSDatabaseAutoRunningStopStack.addTransform"></a>
+##### `addTransform` <a name="addTransform" id="@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStack.addTransform"></a>
 
 ```typescript
 public addTransform(transform: string): void
@@ -136,7 +136,7 @@ stack.addTransform('AWS::Serverless-2016-10-31')
 ```
 
 
-###### `transform`<sup>Required</sup> <a name="transform" id="@gammarers/aws-rds-database-auto-running-stop-stack.RDSDatabaseAutoRunningStopStack.addTransform.parameter.transform"></a>
+###### `transform`<sup>Required</sup> <a name="transform" id="@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStack.addTransform.parameter.transform"></a>
 
 - *Type:* string
 
@@ -144,7 +144,7 @@ The transform to add.
 
 ---
 
-##### `exportStringListValue` <a name="exportStringListValue" id="@gammarers/aws-rds-database-auto-running-stop-stack.RDSDatabaseAutoRunningStopStack.exportStringListValue"></a>
+##### `exportStringListValue` <a name="exportStringListValue" id="@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStack.exportStringListValue"></a>
 
 ```typescript
 public exportStringListValue(exportedValue: any, options?: ExportValueOptions): string[]
@@ -170,19 +170,19 @@ the resource and the manual export.
 
 See `exportValue` for an example of this process.
 
-###### `exportedValue`<sup>Required</sup> <a name="exportedValue" id="@gammarers/aws-rds-database-auto-running-stop-stack.RDSDatabaseAutoRunningStopStack.exportStringListValue.parameter.exportedValue"></a>
+###### `exportedValue`<sup>Required</sup> <a name="exportedValue" id="@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStack.exportStringListValue.parameter.exportedValue"></a>
 
 - *Type:* any
 
 ---
 
-###### `options`<sup>Optional</sup> <a name="options" id="@gammarers/aws-rds-database-auto-running-stop-stack.RDSDatabaseAutoRunningStopStack.exportStringListValue.parameter.options"></a>
+###### `options`<sup>Optional</sup> <a name="options" id="@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStack.exportStringListValue.parameter.options"></a>
 
 - *Type:* aws-cdk-lib.ExportValueOptions
 
 ---
 
-##### `exportValue` <a name="exportValue" id="@gammarers/aws-rds-database-auto-running-stop-stack.RDSDatabaseAutoRunningStopStack.exportValue"></a>
+##### `exportValue` <a name="exportValue" id="@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStack.exportValue"></a>
 
 ```typescript
 public exportValue(exportedValue: any, options?: ExportValueOptions): string
@@ -233,19 +233,19 @@ Instead, the process takes two deployments:
 - Don't forget to remove the `exportValue()` call as well.
 - Deploy again (this time only the `producerStack` will be changed -- the bucket will be deleted).
 
-###### `exportedValue`<sup>Required</sup> <a name="exportedValue" id="@gammarers/aws-rds-database-auto-running-stop-stack.RDSDatabaseAutoRunningStopStack.exportValue.parameter.exportedValue"></a>
+###### `exportedValue`<sup>Required</sup> <a name="exportedValue" id="@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStack.exportValue.parameter.exportedValue"></a>
 
 - *Type:* any
 
 ---
 
-###### `options`<sup>Optional</sup> <a name="options" id="@gammarers/aws-rds-database-auto-running-stop-stack.RDSDatabaseAutoRunningStopStack.exportValue.parameter.options"></a>
+###### `options`<sup>Optional</sup> <a name="options" id="@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStack.exportValue.parameter.options"></a>
 
 - *Type:* aws-cdk-lib.ExportValueOptions
 
 ---
 
-##### `formatArn` <a name="formatArn" id="@gammarers/aws-rds-database-auto-running-stop-stack.RDSDatabaseAutoRunningStopStack.formatArn"></a>
+##### `formatArn` <a name="formatArn" id="@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStack.formatArn"></a>
 
 ```typescript
 public formatArn(components: ArnComponents): string
@@ -267,13 +267,13 @@ The required ARN pieces that are omitted will be taken from the stack that
 the 'scope' is attached to. If all ARN pieces are supplied, the supplied scope
 can be 'undefined'.
 
-###### `components`<sup>Required</sup> <a name="components" id="@gammarers/aws-rds-database-auto-running-stop-stack.RDSDatabaseAutoRunningStopStack.formatArn.parameter.components"></a>
+###### `components`<sup>Required</sup> <a name="components" id="@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStack.formatArn.parameter.components"></a>
 
 - *Type:* aws-cdk-lib.ArnComponents
 
 ---
 
-##### `getLogicalId` <a name="getLogicalId" id="@gammarers/aws-rds-database-auto-running-stop-stack.RDSDatabaseAutoRunningStopStack.getLogicalId"></a>
+##### `getLogicalId` <a name="getLogicalId" id="@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStack.getLogicalId"></a>
 
 ```typescript
 public getLogicalId(element: CfnElement): string
@@ -289,7 +289,7 @@ This method uses the protected method `allocateLogicalId` to render the
 logical ID for an element. To modify the naming scheme, extend the `Stack`
 class and override this method.
 
-###### `element`<sup>Required</sup> <a name="element" id="@gammarers/aws-rds-database-auto-running-stop-stack.RDSDatabaseAutoRunningStopStack.getLogicalId.parameter.element"></a>
+###### `element`<sup>Required</sup> <a name="element" id="@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStack.getLogicalId.parameter.element"></a>
 
 - *Type:* aws-cdk-lib.CfnElement
 
@@ -297,7 +297,7 @@ The CloudFormation element for which a logical identity is needed.
 
 ---
 
-##### `regionalFact` <a name="regionalFact" id="@gammarers/aws-rds-database-auto-running-stop-stack.RDSDatabaseAutoRunningStopStack.regionalFact"></a>
+##### `regionalFact` <a name="regionalFact" id="@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStack.regionalFact"></a>
 
 ```typescript
 public regionalFact(factName: string, defaultValue?: string): string
@@ -321,19 +321,19 @@ not have to worry about regional facts.
 If `defaultValue` is not given, it is an error if the fact is unknown for
 the given region.
 
-###### `factName`<sup>Required</sup> <a name="factName" id="@gammarers/aws-rds-database-auto-running-stop-stack.RDSDatabaseAutoRunningStopStack.regionalFact.parameter.factName"></a>
+###### `factName`<sup>Required</sup> <a name="factName" id="@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStack.regionalFact.parameter.factName"></a>
 
 - *Type:* string
 
 ---
 
-###### `defaultValue`<sup>Optional</sup> <a name="defaultValue" id="@gammarers/aws-rds-database-auto-running-stop-stack.RDSDatabaseAutoRunningStopStack.regionalFact.parameter.defaultValue"></a>
+###### `defaultValue`<sup>Optional</sup> <a name="defaultValue" id="@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStack.regionalFact.parameter.defaultValue"></a>
 
 - *Type:* string
 
 ---
 
-##### `renameLogicalId` <a name="renameLogicalId" id="@gammarers/aws-rds-database-auto-running-stop-stack.RDSDatabaseAutoRunningStopStack.renameLogicalId"></a>
+##### `renameLogicalId` <a name="renameLogicalId" id="@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStack.renameLogicalId"></a>
 
 ```typescript
 public renameLogicalId(oldId: string, newId: string): void
@@ -344,19 +344,19 @@ Rename a generated logical identities.
 To modify the naming scheme strategy, extend the `Stack` class and
 override the `allocateLogicalId` method.
 
-###### `oldId`<sup>Required</sup> <a name="oldId" id="@gammarers/aws-rds-database-auto-running-stop-stack.RDSDatabaseAutoRunningStopStack.renameLogicalId.parameter.oldId"></a>
+###### `oldId`<sup>Required</sup> <a name="oldId" id="@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStack.renameLogicalId.parameter.oldId"></a>
 
 - *Type:* string
 
 ---
 
-###### `newId`<sup>Required</sup> <a name="newId" id="@gammarers/aws-rds-database-auto-running-stop-stack.RDSDatabaseAutoRunningStopStack.renameLogicalId.parameter.newId"></a>
+###### `newId`<sup>Required</sup> <a name="newId" id="@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStack.renameLogicalId.parameter.newId"></a>
 
 - *Type:* string
 
 ---
 
-##### `reportMissingContextKey` <a name="reportMissingContextKey" id="@gammarers/aws-rds-database-auto-running-stop-stack.RDSDatabaseAutoRunningStopStack.reportMissingContextKey"></a>
+##### `reportMissingContextKey` <a name="reportMissingContextKey" id="@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStack.reportMissingContextKey"></a>
 
 ```typescript
 public reportMissingContextKey(report: MissingContext): void
@@ -367,7 +367,7 @@ Indicate that a context key was expected.
 Contains instructions which will be emitted into the cloud assembly on how
 the key should be supplied.
 
-###### `report`<sup>Required</sup> <a name="report" id="@gammarers/aws-rds-database-auto-running-stop-stack.RDSDatabaseAutoRunningStopStack.reportMissingContextKey.parameter.report"></a>
+###### `report`<sup>Required</sup> <a name="report" id="@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStack.reportMissingContextKey.parameter.report"></a>
 
 - *Type:* aws-cdk-lib.cloud_assembly_schema.MissingContext
 
@@ -375,7 +375,7 @@ The set of parameters needed to obtain the context.
 
 ---
 
-##### `resolve` <a name="resolve" id="@gammarers/aws-rds-database-auto-running-stop-stack.RDSDatabaseAutoRunningStopStack.resolve"></a>
+##### `resolve` <a name="resolve" id="@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStack.resolve"></a>
 
 ```typescript
 public resolve(obj: any): any
@@ -383,13 +383,13 @@ public resolve(obj: any): any
 
 Resolve a tokenized value in the context of the current stack.
 
-###### `obj`<sup>Required</sup> <a name="obj" id="@gammarers/aws-rds-database-auto-running-stop-stack.RDSDatabaseAutoRunningStopStack.resolve.parameter.obj"></a>
+###### `obj`<sup>Required</sup> <a name="obj" id="@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStack.resolve.parameter.obj"></a>
 
 - *Type:* any
 
 ---
 
-##### `splitArn` <a name="splitArn" id="@gammarers/aws-rds-database-auto-running-stop-stack.RDSDatabaseAutoRunningStopStack.splitArn"></a>
+##### `splitArn` <a name="splitArn" id="@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStack.splitArn"></a>
 
 ```typescript
 public splitArn(arn: string, arnFormat: ArnFormat): ArnComponents
@@ -402,7 +402,7 @@ and a Token representing a dynamic CloudFormation expression
 (in which case the returned components will also be dynamic CloudFormation expressions,
 encoded as Tokens).
 
-###### `arn`<sup>Required</sup> <a name="arn" id="@gammarers/aws-rds-database-auto-running-stop-stack.RDSDatabaseAutoRunningStopStack.splitArn.parameter.arn"></a>
+###### `arn`<sup>Required</sup> <a name="arn" id="@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStack.splitArn.parameter.arn"></a>
 
 - *Type:* string
 
@@ -410,7 +410,7 @@ the ARN to split into its components.
 
 ---
 
-###### `arnFormat`<sup>Required</sup> <a name="arnFormat" id="@gammarers/aws-rds-database-auto-running-stop-stack.RDSDatabaseAutoRunningStopStack.splitArn.parameter.arnFormat"></a>
+###### `arnFormat`<sup>Required</sup> <a name="arnFormat" id="@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStack.splitArn.parameter.arnFormat"></a>
 
 - *Type:* aws-cdk-lib.ArnFormat
 
@@ -418,7 +418,7 @@ the expected format of 'arn' - depends on what format the service 'arn' represen
 
 ---
 
-##### `toJsonString` <a name="toJsonString" id="@gammarers/aws-rds-database-auto-running-stop-stack.RDSDatabaseAutoRunningStopStack.toJsonString"></a>
+##### `toJsonString` <a name="toJsonString" id="@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStack.toJsonString"></a>
 
 ```typescript
 public toJsonString(obj: any, space?: number): string
@@ -426,19 +426,19 @@ public toJsonString(obj: any, space?: number): string
 
 Convert an object, potentially containing tokens, to a JSON string.
 
-###### `obj`<sup>Required</sup> <a name="obj" id="@gammarers/aws-rds-database-auto-running-stop-stack.RDSDatabaseAutoRunningStopStack.toJsonString.parameter.obj"></a>
+###### `obj`<sup>Required</sup> <a name="obj" id="@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStack.toJsonString.parameter.obj"></a>
 
 - *Type:* any
 
 ---
 
-###### `space`<sup>Optional</sup> <a name="space" id="@gammarers/aws-rds-database-auto-running-stop-stack.RDSDatabaseAutoRunningStopStack.toJsonString.parameter.space"></a>
+###### `space`<sup>Optional</sup> <a name="space" id="@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStack.toJsonString.parameter.space"></a>
 
 - *Type:* number
 
 ---
 
-##### `toYamlString` <a name="toYamlString" id="@gammarers/aws-rds-database-auto-running-stop-stack.RDSDatabaseAutoRunningStopStack.toYamlString"></a>
+##### `toYamlString` <a name="toYamlString" id="@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStack.toYamlString"></a>
 
 ```typescript
 public toYamlString(obj: any): string
@@ -446,7 +446,7 @@ public toYamlString(obj: any): string
 
 Convert an object, potentially containing tokens, to a YAML string.
 
-###### `obj`<sup>Required</sup> <a name="obj" id="@gammarers/aws-rds-database-auto-running-stop-stack.RDSDatabaseAutoRunningStopStack.toYamlString.parameter.obj"></a>
+###### `obj`<sup>Required</sup> <a name="obj" id="@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStack.toYamlString.parameter.obj"></a>
 
 - *Type:* any
 
@@ -456,23 +456,23 @@ Convert an object, potentially containing tokens, to a YAML string.
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#@gammarers/aws-rds-database-auto-running-stop-stack.RDSDatabaseAutoRunningStopStack.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
-| <code><a href="#@gammarers/aws-rds-database-auto-running-stop-stack.RDSDatabaseAutoRunningStopStack.isStack">isStack</a></code> | Return whether the given object is a Stack. |
-| <code><a href="#@gammarers/aws-rds-database-auto-running-stop-stack.RDSDatabaseAutoRunningStopStack.of">of</a></code> | Looks up the first stack scope in which `construct` is defined. |
+| <code><a href="#@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStack.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStack.isStack">isStack</a></code> | Return whether the given object is a Stack. |
+| <code><a href="#@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStack.of">of</a></code> | Looks up the first stack scope in which `construct` is defined. |
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@gammarers/aws-rds-database-auto-running-stop-stack.RDSDatabaseAutoRunningStopStack.isConstruct"></a>
+##### ~~`isConstruct`~~ <a name="isConstruct" id="@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStack.isConstruct"></a>
 
 ```typescript
-import { RDSDatabaseAutoRunningStopStack } from '@gammarers/aws-rds-database-auto-running-stop-stack'
+import { RDSDatabaseAutoRunningProtectionStack } from '@gammarers/aws-rds-database-auto-running-protection-stack'
 
-RDSDatabaseAutoRunningStopStack.isConstruct(x: any)
+RDSDatabaseAutoRunningProtectionStack.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
 
-###### `x`<sup>Required</sup> <a name="x" id="@gammarers/aws-rds-database-auto-running-stop-stack.RDSDatabaseAutoRunningStopStack.isConstruct.parameter.x"></a>
+###### `x`<sup>Required</sup> <a name="x" id="@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStack.isConstruct.parameter.x"></a>
 
 - *Type:* any
 
@@ -480,37 +480,37 @@ Any object.
 
 ---
 
-##### `isStack` <a name="isStack" id="@gammarers/aws-rds-database-auto-running-stop-stack.RDSDatabaseAutoRunningStopStack.isStack"></a>
+##### `isStack` <a name="isStack" id="@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStack.isStack"></a>
 
 ```typescript
-import { RDSDatabaseAutoRunningStopStack } from '@gammarers/aws-rds-database-auto-running-stop-stack'
+import { RDSDatabaseAutoRunningProtectionStack } from '@gammarers/aws-rds-database-auto-running-protection-stack'
 
-RDSDatabaseAutoRunningStopStack.isStack(x: any)
+RDSDatabaseAutoRunningProtectionStack.isStack(x: any)
 ```
 
 Return whether the given object is a Stack.
 
 We do attribute detection since we can't reliably use 'instanceof'.
 
-###### `x`<sup>Required</sup> <a name="x" id="@gammarers/aws-rds-database-auto-running-stop-stack.RDSDatabaseAutoRunningStopStack.isStack.parameter.x"></a>
+###### `x`<sup>Required</sup> <a name="x" id="@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStack.isStack.parameter.x"></a>
 
 - *Type:* any
 
 ---
 
-##### `of` <a name="of" id="@gammarers/aws-rds-database-auto-running-stop-stack.RDSDatabaseAutoRunningStopStack.of"></a>
+##### `of` <a name="of" id="@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStack.of"></a>
 
 ```typescript
-import { RDSDatabaseAutoRunningStopStack } from '@gammarers/aws-rds-database-auto-running-stop-stack'
+import { RDSDatabaseAutoRunningProtectionStack } from '@gammarers/aws-rds-database-auto-running-protection-stack'
 
-RDSDatabaseAutoRunningStopStack.of(construct: IConstruct)
+RDSDatabaseAutoRunningProtectionStack.of(construct: IConstruct)
 ```
 
 Looks up the first stack scope in which `construct` is defined.
 
 Fails if there is no stack up the tree.
 
-###### `construct`<sup>Required</sup> <a name="construct" id="@gammarers/aws-rds-database-auto-running-stop-stack.RDSDatabaseAutoRunningStopStack.of.parameter.construct"></a>
+###### `construct`<sup>Required</sup> <a name="construct" id="@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStack.of.parameter.construct"></a>
 
 - *Type:* constructs.IConstruct
 
@@ -522,31 +522,31 @@ The construct to start the search from.
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@gammarers/aws-rds-database-auto-running-stop-stack.RDSDatabaseAutoRunningStopStack.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@gammarers/aws-rds-database-auto-running-stop-stack.RDSDatabaseAutoRunningStopStack.property.account">account</a></code> | <code>string</code> | The AWS account into which this stack will be deployed. |
-| <code><a href="#@gammarers/aws-rds-database-auto-running-stop-stack.RDSDatabaseAutoRunningStopStack.property.artifactId">artifactId</a></code> | <code>string</code> | The ID of the cloud assembly artifact for this stack. |
-| <code><a href="#@gammarers/aws-rds-database-auto-running-stop-stack.RDSDatabaseAutoRunningStopStack.property.availabilityZones">availabilityZones</a></code> | <code>string[]</code> | Returns the list of AZs that are available in the AWS environment (account/region) associated with this stack. |
-| <code><a href="#@gammarers/aws-rds-database-auto-running-stop-stack.RDSDatabaseAutoRunningStopStack.property.bundlingRequired">bundlingRequired</a></code> | <code>boolean</code> | Indicates whether the stack requires bundling or not. |
-| <code><a href="#@gammarers/aws-rds-database-auto-running-stop-stack.RDSDatabaseAutoRunningStopStack.property.dependencies">dependencies</a></code> | <code>aws-cdk-lib.Stack[]</code> | Return the stacks this stack depends on. |
-| <code><a href="#@gammarers/aws-rds-database-auto-running-stop-stack.RDSDatabaseAutoRunningStopStack.property.environment">environment</a></code> | <code>string</code> | The environment coordinates in which this stack is deployed. |
-| <code><a href="#@gammarers/aws-rds-database-auto-running-stop-stack.RDSDatabaseAutoRunningStopStack.property.nested">nested</a></code> | <code>boolean</code> | Indicates if this is a nested stack, in which case `parentStack` will include a reference to it's parent. |
-| <code><a href="#@gammarers/aws-rds-database-auto-running-stop-stack.RDSDatabaseAutoRunningStopStack.property.notificationArns">notificationArns</a></code> | <code>string[]</code> | Returns the list of notification Amazon Resource Names (ARNs) for the current stack. |
-| <code><a href="#@gammarers/aws-rds-database-auto-running-stop-stack.RDSDatabaseAutoRunningStopStack.property.partition">partition</a></code> | <code>string</code> | The partition in which this stack is defined. |
-| <code><a href="#@gammarers/aws-rds-database-auto-running-stop-stack.RDSDatabaseAutoRunningStopStack.property.region">region</a></code> | <code>string</code> | The AWS region into which this stack will be deployed (e.g. `us-west-2`). |
-| <code><a href="#@gammarers/aws-rds-database-auto-running-stop-stack.RDSDatabaseAutoRunningStopStack.property.stackId">stackId</a></code> | <code>string</code> | The ID of the stack. |
-| <code><a href="#@gammarers/aws-rds-database-auto-running-stop-stack.RDSDatabaseAutoRunningStopStack.property.stackName">stackName</a></code> | <code>string</code> | The concrete CloudFormation physical stack name. |
-| <code><a href="#@gammarers/aws-rds-database-auto-running-stop-stack.RDSDatabaseAutoRunningStopStack.property.synthesizer">synthesizer</a></code> | <code>aws-cdk-lib.IStackSynthesizer</code> | Synthesis method for this stack. |
-| <code><a href="#@gammarers/aws-rds-database-auto-running-stop-stack.RDSDatabaseAutoRunningStopStack.property.tags">tags</a></code> | <code>aws-cdk-lib.TagManager</code> | Tags to be applied to the stack. |
-| <code><a href="#@gammarers/aws-rds-database-auto-running-stop-stack.RDSDatabaseAutoRunningStopStack.property.templateFile">templateFile</a></code> | <code>string</code> | The name of the CloudFormation template file emitted to the output directory during synthesis. |
-| <code><a href="#@gammarers/aws-rds-database-auto-running-stop-stack.RDSDatabaseAutoRunningStopStack.property.templateOptions">templateOptions</a></code> | <code>aws-cdk-lib.ITemplateOptions</code> | Options for CloudFormation template (like version, transform, description). |
-| <code><a href="#@gammarers/aws-rds-database-auto-running-stop-stack.RDSDatabaseAutoRunningStopStack.property.urlSuffix">urlSuffix</a></code> | <code>string</code> | The Amazon domain suffix for the region in which this stack is defined. |
-| <code><a href="#@gammarers/aws-rds-database-auto-running-stop-stack.RDSDatabaseAutoRunningStopStack.property.nestedStackParent">nestedStackParent</a></code> | <code>aws-cdk-lib.Stack</code> | If this is a nested stack, returns it's parent stack. |
-| <code><a href="#@gammarers/aws-rds-database-auto-running-stop-stack.RDSDatabaseAutoRunningStopStack.property.nestedStackResource">nestedStackResource</a></code> | <code>aws-cdk-lib.CfnResource</code> | If this is a nested stack, this represents its `AWS::CloudFormation::Stack` resource. |
-| <code><a href="#@gammarers/aws-rds-database-auto-running-stop-stack.RDSDatabaseAutoRunningStopStack.property.terminationProtection">terminationProtection</a></code> | <code>boolean</code> | Whether termination protection is enabled for this stack. |
+| <code><a href="#@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStack.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStack.property.account">account</a></code> | <code>string</code> | The AWS account into which this stack will be deployed. |
+| <code><a href="#@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStack.property.artifactId">artifactId</a></code> | <code>string</code> | The ID of the cloud assembly artifact for this stack. |
+| <code><a href="#@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStack.property.availabilityZones">availabilityZones</a></code> | <code>string[]</code> | Returns the list of AZs that are available in the AWS environment (account/region) associated with this stack. |
+| <code><a href="#@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStack.property.bundlingRequired">bundlingRequired</a></code> | <code>boolean</code> | Indicates whether the stack requires bundling or not. |
+| <code><a href="#@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStack.property.dependencies">dependencies</a></code> | <code>aws-cdk-lib.Stack[]</code> | Return the stacks this stack depends on. |
+| <code><a href="#@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStack.property.environment">environment</a></code> | <code>string</code> | The environment coordinates in which this stack is deployed. |
+| <code><a href="#@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStack.property.nested">nested</a></code> | <code>boolean</code> | Indicates if this is a nested stack, in which case `parentStack` will include a reference to it's parent. |
+| <code><a href="#@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStack.property.notificationArns">notificationArns</a></code> | <code>string[]</code> | Returns the list of notification Amazon Resource Names (ARNs) for the current stack. |
+| <code><a href="#@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStack.property.partition">partition</a></code> | <code>string</code> | The partition in which this stack is defined. |
+| <code><a href="#@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStack.property.region">region</a></code> | <code>string</code> | The AWS region into which this stack will be deployed (e.g. `us-west-2`). |
+| <code><a href="#@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStack.property.stackId">stackId</a></code> | <code>string</code> | The ID of the stack. |
+| <code><a href="#@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStack.property.stackName">stackName</a></code> | <code>string</code> | The concrete CloudFormation physical stack name. |
+| <code><a href="#@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStack.property.synthesizer">synthesizer</a></code> | <code>aws-cdk-lib.IStackSynthesizer</code> | Synthesis method for this stack. |
+| <code><a href="#@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStack.property.tags">tags</a></code> | <code>aws-cdk-lib.TagManager</code> | Tags to be applied to the stack. |
+| <code><a href="#@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStack.property.templateFile">templateFile</a></code> | <code>string</code> | The name of the CloudFormation template file emitted to the output directory during synthesis. |
+| <code><a href="#@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStack.property.templateOptions">templateOptions</a></code> | <code>aws-cdk-lib.ITemplateOptions</code> | Options for CloudFormation template (like version, transform, description). |
+| <code><a href="#@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStack.property.urlSuffix">urlSuffix</a></code> | <code>string</code> | The Amazon domain suffix for the region in which this stack is defined. |
+| <code><a href="#@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStack.property.nestedStackParent">nestedStackParent</a></code> | <code>aws-cdk-lib.Stack</code> | If this is a nested stack, returns it's parent stack. |
+| <code><a href="#@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStack.property.nestedStackResource">nestedStackResource</a></code> | <code>aws-cdk-lib.CfnResource</code> | If this is a nested stack, this represents its `AWS::CloudFormation::Stack` resource. |
+| <code><a href="#@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStack.property.terminationProtection">terminationProtection</a></code> | <code>boolean</code> | Whether termination protection is enabled for this stack. |
 
 ---
 
-##### `node`<sup>Required</sup> <a name="node" id="@gammarers/aws-rds-database-auto-running-stop-stack.RDSDatabaseAutoRunningStopStack.property.node"></a>
+##### `node`<sup>Required</sup> <a name="node" id="@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStack.property.node"></a>
 
 ```typescript
 public readonly node: Node;
@@ -558,7 +558,7 @@ The tree node.
 
 ---
 
-##### `account`<sup>Required</sup> <a name="account" id="@gammarers/aws-rds-database-auto-running-stop-stack.RDSDatabaseAutoRunningStopStack.property.account"></a>
+##### `account`<sup>Required</sup> <a name="account" id="@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStack.property.account"></a>
 
 ```typescript
 public readonly account: string;
@@ -587,7 +587,7 @@ implement some other region-agnostic behavior.
 
 ---
 
-##### `artifactId`<sup>Required</sup> <a name="artifactId" id="@gammarers/aws-rds-database-auto-running-stop-stack.RDSDatabaseAutoRunningStopStack.property.artifactId"></a>
+##### `artifactId`<sup>Required</sup> <a name="artifactId" id="@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStack.property.artifactId"></a>
 
 ```typescript
 public readonly artifactId: string;
@@ -599,7 +599,7 @@ The ID of the cloud assembly artifact for this stack.
 
 ---
 
-##### `availabilityZones`<sup>Required</sup> <a name="availabilityZones" id="@gammarers/aws-rds-database-auto-running-stop-stack.RDSDatabaseAutoRunningStopStack.property.availabilityZones"></a>
+##### `availabilityZones`<sup>Required</sup> <a name="availabilityZones" id="@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStack.property.availabilityZones"></a>
 
 ```typescript
 public readonly availabilityZones: string[];
@@ -622,7 +622,7 @@ To specify a different strategy for selecting availability zones override this m
 
 ---
 
-##### `bundlingRequired`<sup>Required</sup> <a name="bundlingRequired" id="@gammarers/aws-rds-database-auto-running-stop-stack.RDSDatabaseAutoRunningStopStack.property.bundlingRequired"></a>
+##### `bundlingRequired`<sup>Required</sup> <a name="bundlingRequired" id="@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStack.property.bundlingRequired"></a>
 
 ```typescript
 public readonly bundlingRequired: boolean;
@@ -634,7 +634,7 @@ Indicates whether the stack requires bundling or not.
 
 ---
 
-##### `dependencies`<sup>Required</sup> <a name="dependencies" id="@gammarers/aws-rds-database-auto-running-stop-stack.RDSDatabaseAutoRunningStopStack.property.dependencies"></a>
+##### `dependencies`<sup>Required</sup> <a name="dependencies" id="@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStack.property.dependencies"></a>
 
 ```typescript
 public readonly dependencies: Stack[];
@@ -646,7 +646,7 @@ Return the stacks this stack depends on.
 
 ---
 
-##### `environment`<sup>Required</sup> <a name="environment" id="@gammarers/aws-rds-database-auto-running-stop-stack.RDSDatabaseAutoRunningStopStack.property.environment"></a>
+##### `environment`<sup>Required</sup> <a name="environment" id="@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStack.property.environment"></a>
 
 ```typescript
 public readonly environment: string;
@@ -670,7 +670,7 @@ region/account-agnostic.
 
 ---
 
-##### `nested`<sup>Required</sup> <a name="nested" id="@gammarers/aws-rds-database-auto-running-stop-stack.RDSDatabaseAutoRunningStopStack.property.nested"></a>
+##### `nested`<sup>Required</sup> <a name="nested" id="@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStack.property.nested"></a>
 
 ```typescript
 public readonly nested: boolean;
@@ -682,7 +682,7 @@ Indicates if this is a nested stack, in which case `parentStack` will include a 
 
 ---
 
-##### `notificationArns`<sup>Required</sup> <a name="notificationArns" id="@gammarers/aws-rds-database-auto-running-stop-stack.RDSDatabaseAutoRunningStopStack.property.notificationArns"></a>
+##### `notificationArns`<sup>Required</sup> <a name="notificationArns" id="@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStack.property.notificationArns"></a>
 
 ```typescript
 public readonly notificationArns: string[];
@@ -694,7 +694,7 @@ Returns the list of notification Amazon Resource Names (ARNs) for the current st
 
 ---
 
-##### `partition`<sup>Required</sup> <a name="partition" id="@gammarers/aws-rds-database-auto-running-stop-stack.RDSDatabaseAutoRunningStopStack.property.partition"></a>
+##### `partition`<sup>Required</sup> <a name="partition" id="@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStack.property.partition"></a>
 
 ```typescript
 public readonly partition: string;
@@ -706,7 +706,7 @@ The partition in which this stack is defined.
 
 ---
 
-##### `region`<sup>Required</sup> <a name="region" id="@gammarers/aws-rds-database-auto-running-stop-stack.RDSDatabaseAutoRunningStopStack.property.region"></a>
+##### `region`<sup>Required</sup> <a name="region" id="@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStack.property.region"></a>
 
 ```typescript
 public readonly region: string;
@@ -735,7 +735,7 @@ implement some other region-agnostic behavior.
 
 ---
 
-##### `stackId`<sup>Required</sup> <a name="stackId" id="@gammarers/aws-rds-database-auto-running-stop-stack.RDSDatabaseAutoRunningStopStack.property.stackId"></a>
+##### `stackId`<sup>Required</sup> <a name="stackId" id="@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStack.property.stackId"></a>
 
 ```typescript
 public readonly stackId: string;
@@ -755,7 +755,7 @@ The ID of the stack.
 ```
 
 
-##### `stackName`<sup>Required</sup> <a name="stackName" id="@gammarers/aws-rds-database-auto-running-stop-stack.RDSDatabaseAutoRunningStopStack.property.stackName"></a>
+##### `stackName`<sup>Required</sup> <a name="stackName" id="@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStack.property.stackName"></a>
 
 ```typescript
 public readonly stackName: string;
@@ -776,7 +776,7 @@ you can use `Aws.STACK_NAME` directly.
 
 ---
 
-##### `synthesizer`<sup>Required</sup> <a name="synthesizer" id="@gammarers/aws-rds-database-auto-running-stop-stack.RDSDatabaseAutoRunningStopStack.property.synthesizer"></a>
+##### `synthesizer`<sup>Required</sup> <a name="synthesizer" id="@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStack.property.synthesizer"></a>
 
 ```typescript
 public readonly synthesizer: IStackSynthesizer;
@@ -788,7 +788,7 @@ Synthesis method for this stack.
 
 ---
 
-##### `tags`<sup>Required</sup> <a name="tags" id="@gammarers/aws-rds-database-auto-running-stop-stack.RDSDatabaseAutoRunningStopStack.property.tags"></a>
+##### `tags`<sup>Required</sup> <a name="tags" id="@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStack.property.tags"></a>
 
 ```typescript
 public readonly tags: TagManager;
@@ -800,7 +800,7 @@ Tags to be applied to the stack.
 
 ---
 
-##### `templateFile`<sup>Required</sup> <a name="templateFile" id="@gammarers/aws-rds-database-auto-running-stop-stack.RDSDatabaseAutoRunningStopStack.property.templateFile"></a>
+##### `templateFile`<sup>Required</sup> <a name="templateFile" id="@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStack.property.templateFile"></a>
 
 ```typescript
 public readonly templateFile: string;
@@ -814,7 +814,7 @@ Example value: `MyStack.template.json`
 
 ---
 
-##### `templateOptions`<sup>Required</sup> <a name="templateOptions" id="@gammarers/aws-rds-database-auto-running-stop-stack.RDSDatabaseAutoRunningStopStack.property.templateOptions"></a>
+##### `templateOptions`<sup>Required</sup> <a name="templateOptions" id="@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStack.property.templateOptions"></a>
 
 ```typescript
 public readonly templateOptions: ITemplateOptions;
@@ -826,7 +826,7 @@ Options for CloudFormation template (like version, transform, description).
 
 ---
 
-##### `urlSuffix`<sup>Required</sup> <a name="urlSuffix" id="@gammarers/aws-rds-database-auto-running-stop-stack.RDSDatabaseAutoRunningStopStack.property.urlSuffix"></a>
+##### `urlSuffix`<sup>Required</sup> <a name="urlSuffix" id="@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStack.property.urlSuffix"></a>
 
 ```typescript
 public readonly urlSuffix: string;
@@ -838,7 +838,7 @@ The Amazon domain suffix for the region in which this stack is defined.
 
 ---
 
-##### `nestedStackParent`<sup>Optional</sup> <a name="nestedStackParent" id="@gammarers/aws-rds-database-auto-running-stop-stack.RDSDatabaseAutoRunningStopStack.property.nestedStackParent"></a>
+##### `nestedStackParent`<sup>Optional</sup> <a name="nestedStackParent" id="@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStack.property.nestedStackParent"></a>
 
 ```typescript
 public readonly nestedStackParent: Stack;
@@ -850,7 +850,7 @@ If this is a nested stack, returns it's parent stack.
 
 ---
 
-##### `nestedStackResource`<sup>Optional</sup> <a name="nestedStackResource" id="@gammarers/aws-rds-database-auto-running-stop-stack.RDSDatabaseAutoRunningStopStack.property.nestedStackResource"></a>
+##### `nestedStackResource`<sup>Optional</sup> <a name="nestedStackResource" id="@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStack.property.nestedStackResource"></a>
 
 ```typescript
 public readonly nestedStackResource: CfnResource;
@@ -864,7 +864,7 @@ If this is a nested stack, this represents its `AWS::CloudFormation::Stack` reso
 
 ---
 
-##### `terminationProtection`<sup>Optional</sup> <a name="terminationProtection" id="@gammarers/aws-rds-database-auto-running-stop-stack.RDSDatabaseAutoRunningStopStack.property.terminationProtection"></a>
+##### `terminationProtection`<sup>Required</sup> <a name="terminationProtection" id="@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStack.property.terminationProtection"></a>
 
 ```typescript
 public readonly terminationProtection: boolean;
@@ -877,6 +877,305 @@ Whether termination protection is enabled for this stack.
 ---
 
 
+## Structs <a name="Structs" id="Structs"></a>
+
+### RDSDatabaseAutoRunningProtectionStackProps <a name="RDSDatabaseAutoRunningProtectionStackProps" id="@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStackProps"></a>
+
+#### Initializer <a name="Initializer" id="@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStackProps.Initializer"></a>
+
+```typescript
+import { RDSDatabaseAutoRunningProtectionStackProps } from '@gammarers/aws-rds-database-auto-running-protection-stack'
+
+const rDSDatabaseAutoRunningProtectionStackProps: RDSDatabaseAutoRunningProtectionStackProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStackProps.property.analyticsReporting">analyticsReporting</a></code> | <code>boolean</code> | Include runtime versioning information in this Stack. |
+| <code><a href="#@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStackProps.property.crossRegionReferences">crossRegionReferences</a></code> | <code>boolean</code> | Enable this flag to allow native cross region stack references. |
+| <code><a href="#@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStackProps.property.description">description</a></code> | <code>string</code> | A description of the stack. |
+| <code><a href="#@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStackProps.property.env">env</a></code> | <code>aws-cdk-lib.Environment</code> | The AWS environment (account/region) where this stack will be deployed. |
+| <code><a href="#@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStackProps.property.permissionsBoundary">permissionsBoundary</a></code> | <code>aws-cdk-lib.PermissionsBoundary</code> | Options for applying a permissions boundary to all IAM Roles and Users created within this Stage. |
+| <code><a href="#@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStackProps.property.stackName">stackName</a></code> | <code>string</code> | Name to deploy the stack with. |
+| <code><a href="#@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStackProps.property.suppressTemplateIndentation">suppressTemplateIndentation</a></code> | <code>boolean</code> | Enable this flag to suppress indentation in generated CloudFormation templates. |
+| <code><a href="#@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStackProps.property.synthesizer">synthesizer</a></code> | <code>aws-cdk-lib.IStackSynthesizer</code> | Synthesis method to use while deploying this stack. |
+| <code><a href="#@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStackProps.property.tags">tags</a></code> | <code>{[ key: string ]: string}</code> | Stack tags that will be applied to all the taggable resources and the stack itself. |
+| <code><a href="#@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStackProps.property.terminationProtection">terminationProtection</a></code> | <code>boolean</code> | Whether to enable termination protection for this stack. |
+| <code><a href="#@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStackProps.property.targetResource">targetResource</a></code> | <code><a href="#@gammarers/aws-rds-database-auto-running-protection-stack.TargetResourceProperty">TargetResourceProperty</a></code> | *No description.* |
+| <code><a href="#@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStackProps.property.enableRule">enableRule</a></code> | <code>boolean</code> | *No description.* |
+
+---
+
+##### `analyticsReporting`<sup>Optional</sup> <a name="analyticsReporting" id="@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStackProps.property.analyticsReporting"></a>
+
+```typescript
+public readonly analyticsReporting: boolean;
+```
+
+- *Type:* boolean
+- *Default:* `analyticsReporting` setting of containing `App`, or value of 'aws:cdk:version-reporting' context key
+
+Include runtime versioning information in this Stack.
+
+---
+
+##### `crossRegionReferences`<sup>Optional</sup> <a name="crossRegionReferences" id="@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStackProps.property.crossRegionReferences"></a>
+
+```typescript
+public readonly crossRegionReferences: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Enable this flag to allow native cross region stack references.
+
+Enabling this will create a CloudFormation custom resource
+in both the producing stack and consuming stack in order to perform the export/import
+
+This feature is currently experimental
+
+---
+
+##### `description`<sup>Optional</sup> <a name="description" id="@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStackProps.property.description"></a>
+
+```typescript
+public readonly description: string;
+```
+
+- *Type:* string
+- *Default:* No description.
+
+A description of the stack.
+
+---
+
+##### `env`<sup>Optional</sup> <a name="env" id="@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStackProps.property.env"></a>
+
+```typescript
+public readonly env: Environment;
+```
+
+- *Type:* aws-cdk-lib.Environment
+- *Default:* The environment of the containing `Stage` if available, otherwise create the stack will be environment-agnostic.
+
+The AWS environment (account/region) where this stack will be deployed.
+
+Set the `region`/`account` fields of `env` to either a concrete value to
+select the indicated environment (recommended for production stacks), or to
+the values of environment variables
+`CDK_DEFAULT_REGION`/`CDK_DEFAULT_ACCOUNT` to let the target environment
+depend on the AWS credentials/configuration that the CDK CLI is executed
+under (recommended for development stacks).
+
+If the `Stack` is instantiated inside a `Stage`, any undefined
+`region`/`account` fields from `env` will default to the same field on the
+encompassing `Stage`, if configured there.
+
+If either `region` or `account` are not set nor inherited from `Stage`, the
+Stack will be considered "*environment-agnostic*"". Environment-agnostic
+stacks can be deployed to any environment but may not be able to take
+advantage of all features of the CDK. For example, they will not be able to
+use environmental context lookups such as `ec2.Vpc.fromLookup` and will not
+automatically translate Service Principals to the right format based on the
+environment's AWS partition, and other such enhancements.
+
+---
+
+*Example*
+
+```typescript
+// Use a concrete account and region to deploy this stack to:
+// `.account` and `.region` will simply return these values.
+new Stack(app, 'Stack1', {
+  env: {
+    account: '123456789012',
+    region: 'us-east-1'
+  },
+});
+
+// Use the CLI's current credentials to determine the target environment:
+// `.account` and `.region` will reflect the account+region the CLI
+// is configured to use (based on the user CLI credentials)
+new Stack(app, 'Stack2', {
+  env: {
+    account: process.env.CDK_DEFAULT_ACCOUNT,
+    region: process.env.CDK_DEFAULT_REGION
+  },
+});
+
+// Define multiple stacks stage associated with an environment
+const myStage = new Stage(app, 'MyStage', {
+  env: {
+    account: '123456789012',
+    region: 'us-east-1'
+  }
+});
+
+// both of these stacks will use the stage's account/region:
+// `.account` and `.region` will resolve to the concrete values as above
+new MyStack(myStage, 'Stack1');
+new YourStack(myStage, 'Stack2');
+
+// Define an environment-agnostic stack:
+// `.account` and `.region` will resolve to `{ "Ref": "AWS::AccountId" }` and `{ "Ref": "AWS::Region" }` respectively.
+// which will only resolve to actual values by CloudFormation during deployment.
+new MyStack(app, 'Stack1');
+```
+
+
+##### `permissionsBoundary`<sup>Optional</sup> <a name="permissionsBoundary" id="@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStackProps.property.permissionsBoundary"></a>
+
+```typescript
+public readonly permissionsBoundary: PermissionsBoundary;
+```
+
+- *Type:* aws-cdk-lib.PermissionsBoundary
+- *Default:* no permissions boundary is applied
+
+Options for applying a permissions boundary to all IAM Roles and Users created within this Stage.
+
+---
+
+##### `stackName`<sup>Optional</sup> <a name="stackName" id="@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStackProps.property.stackName"></a>
+
+```typescript
+public readonly stackName: string;
+```
+
+- *Type:* string
+- *Default:* Derived from construct path.
+
+Name to deploy the stack with.
+
+---
+
+##### `suppressTemplateIndentation`<sup>Optional</sup> <a name="suppressTemplateIndentation" id="@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStackProps.property.suppressTemplateIndentation"></a>
+
+```typescript
+public readonly suppressTemplateIndentation: boolean;
+```
+
+- *Type:* boolean
+- *Default:* the value of `@aws-cdk/core:suppressTemplateIndentation`, or `false` if that is not set.
+
+Enable this flag to suppress indentation in generated CloudFormation templates.
+
+If not specified, the value of the `@aws-cdk/core:suppressTemplateIndentation`
+context key will be used. If that is not specified, then the
+default value `false` will be used.
+
+---
+
+##### `synthesizer`<sup>Optional</sup> <a name="synthesizer" id="@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStackProps.property.synthesizer"></a>
+
+```typescript
+public readonly synthesizer: IStackSynthesizer;
+```
+
+- *Type:* aws-cdk-lib.IStackSynthesizer
+- *Default:* The synthesizer specified on `App`, or `DefaultStackSynthesizer` otherwise.
+
+Synthesis method to use while deploying this stack.
+
+The Stack Synthesizer controls aspects of synthesis and deployment,
+like how assets are referenced and what IAM roles to use. For more
+information, see the README of the main CDK package.
+
+If not specified, the `defaultStackSynthesizer` from `App` will be used.
+If that is not specified, `DefaultStackSynthesizer` is used if
+`@aws-cdk/core:newStyleStackSynthesis` is set to `true` or the CDK major
+version is v2. In CDK v1 `LegacyStackSynthesizer` is the default if no
+other synthesizer is specified.
+
+---
+
+##### `tags`<sup>Optional</sup> <a name="tags" id="@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStackProps.property.tags"></a>
+
+```typescript
+public readonly tags: {[ key: string ]: string};
+```
+
+- *Type:* {[ key: string ]: string}
+- *Default:* {}
+
+Stack tags that will be applied to all the taggable resources and the stack itself.
+
+---
+
+##### `terminationProtection`<sup>Optional</sup> <a name="terminationProtection" id="@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStackProps.property.terminationProtection"></a>
+
+```typescript
+public readonly terminationProtection: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Whether to enable termination protection for this stack.
+
+---
+
+##### `targetResource`<sup>Required</sup> <a name="targetResource" id="@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStackProps.property.targetResource"></a>
+
+```typescript
+public readonly targetResource: TargetResourceProperty;
+```
+
+- *Type:* <a href="#@gammarers/aws-rds-database-auto-running-protection-stack.TargetResourceProperty">TargetResourceProperty</a>
+
+---
+
+##### `enableRule`<sup>Optional</sup> <a name="enableRule" id="@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStackProps.property.enableRule"></a>
+
+```typescript
+public readonly enableRule: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+### TargetResourceProperty <a name="TargetResourceProperty" id="@gammarers/aws-rds-database-auto-running-protection-stack.TargetResourceProperty"></a>
+
+#### Initializer <a name="Initializer" id="@gammarers/aws-rds-database-auto-running-protection-stack.TargetResourceProperty.Initializer"></a>
+
+```typescript
+import { TargetResourceProperty } from '@gammarers/aws-rds-database-auto-running-protection-stack'
+
+const targetResourceProperty: TargetResourceProperty = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@gammarers/aws-rds-database-auto-running-protection-stack.TargetResourceProperty.property.tagKey">tagKey</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@gammarers/aws-rds-database-auto-running-protection-stack.TargetResourceProperty.property.tagValues">tagValues</a></code> | <code>string[]</code> | *No description.* |
+
+---
+
+##### `tagKey`<sup>Required</sup> <a name="tagKey" id="@gammarers/aws-rds-database-auto-running-protection-stack.TargetResourceProperty.property.tagKey"></a>
+
+```typescript
+public readonly tagKey: string;
+```
+
+- *Type:* string
+
+---
+
+##### `tagValues`<sup>Required</sup> <a name="tagValues" id="@gammarers/aws-rds-database-auto-running-protection-stack.TargetResourceProperty.property.tagValues"></a>
+
+```typescript
+public readonly tagValues: string[];
+```
+
+- *Type:* string[]
+
+---
 
 
 
