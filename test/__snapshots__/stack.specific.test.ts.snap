@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Stack Default Testing Should match snapshot 1`] = `
+exports[`Stack Specific Testing Should match snapshot 1`] = `
 {
   "Parameters": {
     "BootstrapVersion": {
@@ -26,6 +26,7 @@ exports[`Stack Default Testing Should match snapshot 1`] = `
             "aws.rds",
           ],
         },
+        "Name": "rds-db-cluster-running-event-catch-6b53905e-rule",
         "State": "ENABLED",
         "Targets": [
           {
@@ -66,6 +67,7 @@ exports[`Stack Default Testing Should match snapshot 1`] = `
             "aws.rds",
           ],
         },
+        "Name": "rds-db-instance-running-event-catch-6b53905e-rule",
         "State": "ENABLED",
         "Targets": [
           {
@@ -122,6 +124,7 @@ exports[`Stack Default Testing Should match snapshot 1`] = `
             "PolicyName": "state-machine-exec",
           },
         ],
+        "RoleName": "rds-db-auto-running-catch-event-6b53905e-role",
       },
       "Type": "AWS::IAM::Role",
     },
@@ -185,6 +188,7 @@ exports[`Stack Default Testing Should match snapshot 1`] = `
             "Arn",
           ],
         },
+        "StateMachineName": "rds-db-auto-running-stop-6b53905e-state-machine",
       },
       "Type": "AWS::StepFunctions::StateMachine",
       "UpdateReplacePolicy": "Delete",
@@ -203,6 +207,8 @@ exports[`Stack Default Testing Should match snapshot 1`] = `
           ],
           "Version": "2012-10-17",
         },
+        "Description": "rds database auto running stop state machine role.",
+        "RoleName": "rds-db-auto-running-stop-state-machine-6b53905e-role",
       },
       "Type": "AWS::IAM::Role",
     },
@@ -233,7 +239,7 @@ exports[`Stack Default Testing Should match snapshot 1`] = `
           ],
           "Version": "2012-10-17",
         },
-        "PolicyName": "StateMachineRoleDefaultPolicyDF1E6607",
+        "PolicyName": "rds-db-auto-running-stop-state-machine-6b53905e-policy",
         "Roles": [
           {
             "Ref": "StateMachineRoleB840431D",

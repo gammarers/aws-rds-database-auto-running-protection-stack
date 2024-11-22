@@ -879,6 +879,89 @@ Whether termination protection is enabled for this stack.
 
 ## Structs <a name="Structs" id="Structs"></a>
 
+### CustomNaming <a name="CustomNaming" id="@gammarers/aws-rds-database-auto-running-protection-stack.CustomNaming"></a>
+
+#### Initializer <a name="Initializer" id="@gammarers/aws-rds-database-auto-running-protection-stack.CustomNaming.Initializer"></a>
+
+```typescript
+import { CustomNaming } from '@gammarers/aws-rds-database-auto-running-protection-stack'
+
+const customNaming: CustomNaming = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@gammarers/aws-rds-database-auto-running-protection-stack.CustomNaming.property.startClusterEventCatchRuleName">startClusterEventCatchRuleName</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@gammarers/aws-rds-database-auto-running-protection-stack.CustomNaming.property.startEventCatchRuleRoleName">startEventCatchRuleRoleName</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@gammarers/aws-rds-database-auto-running-protection-stack.CustomNaming.property.startInstanceEventCatchRuleName">startInstanceEventCatchRuleName</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@gammarers/aws-rds-database-auto-running-protection-stack.CustomNaming.property.stateMachineName">stateMachineName</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@gammarers/aws-rds-database-auto-running-protection-stack.CustomNaming.property.stateMachineRoleName">stateMachineRoleName</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@gammarers/aws-rds-database-auto-running-protection-stack.CustomNaming.property.type">type</a></code> | <code>@gammarers/aws-resource-naming.ResourceNamingType</code> | *No description.* |
+
+---
+
+##### `startClusterEventCatchRuleName`<sup>Required</sup> <a name="startClusterEventCatchRuleName" id="@gammarers/aws-rds-database-auto-running-protection-stack.CustomNaming.property.startClusterEventCatchRuleName"></a>
+
+```typescript
+public readonly startClusterEventCatchRuleName: string;
+```
+
+- *Type:* string
+
+---
+
+##### `startEventCatchRuleRoleName`<sup>Required</sup> <a name="startEventCatchRuleRoleName" id="@gammarers/aws-rds-database-auto-running-protection-stack.CustomNaming.property.startEventCatchRuleRoleName"></a>
+
+```typescript
+public readonly startEventCatchRuleRoleName: string;
+```
+
+- *Type:* string
+
+---
+
+##### `startInstanceEventCatchRuleName`<sup>Required</sup> <a name="startInstanceEventCatchRuleName" id="@gammarers/aws-rds-database-auto-running-protection-stack.CustomNaming.property.startInstanceEventCatchRuleName"></a>
+
+```typescript
+public readonly startInstanceEventCatchRuleName: string;
+```
+
+- *Type:* string
+
+---
+
+##### `stateMachineName`<sup>Required</sup> <a name="stateMachineName" id="@gammarers/aws-rds-database-auto-running-protection-stack.CustomNaming.property.stateMachineName"></a>
+
+```typescript
+public readonly stateMachineName: string;
+```
+
+- *Type:* string
+
+---
+
+##### `stateMachineRoleName`<sup>Required</sup> <a name="stateMachineRoleName" id="@gammarers/aws-rds-database-auto-running-protection-stack.CustomNaming.property.stateMachineRoleName"></a>
+
+```typescript
+public readonly stateMachineRoleName: string;
+```
+
+- *Type:* string
+
+---
+
+##### `type`<sup>Required</sup> <a name="type" id="@gammarers/aws-rds-database-auto-running-protection-stack.CustomNaming.property.type"></a>
+
+```typescript
+public readonly type: ResourceNamingType;
+```
+
+- *Type:* @gammarers/aws-resource-naming.ResourceNamingType
+
+---
+
 ### RDSDatabaseAutoRunningProtectionStackProps <a name="RDSDatabaseAutoRunningProtectionStackProps" id="@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStackProps"></a>
 
 #### Initializer <a name="Initializer" id="@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStackProps.Initializer"></a>
@@ -905,6 +988,7 @@ const rDSDatabaseAutoRunningProtectionStackProps: RDSDatabaseAutoRunningProtecti
 | <code><a href="#@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStackProps.property.terminationProtection">terminationProtection</a></code> | <code>boolean</code> | Whether to enable termination protection for this stack. |
 | <code><a href="#@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStackProps.property.targetResource">targetResource</a></code> | <code><a href="#@gammarers/aws-rds-database-auto-running-protection-stack.TargetResourceProperty">TargetResourceProperty</a></code> | *No description.* |
 | <code><a href="#@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStackProps.property.enableRule">enableRule</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStackProps.property.resourceNamingOption">resourceNamingOption</a></code> | <code>@gammarers/aws-resource-naming.ResourceDefaultNaming \| @gammarers/aws-resource-naming.ResourceAutoNaming \| <a href="#@gammarers/aws-rds-database-auto-running-protection-stack.CustomNaming">CustomNaming</a></code> | *No description.* |
 
 ---
 
@@ -1135,6 +1219,16 @@ public readonly enableRule: boolean;
 ```
 
 - *Type:* boolean
+
+---
+
+##### `resourceNamingOption`<sup>Optional</sup> <a name="resourceNamingOption" id="@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStackProps.property.resourceNamingOption"></a>
+
+```typescript
+public readonly resourceNamingOption: ResourceDefaultNaming | ResourceAutoNaming | CustomNaming;
+```
+
+- *Type:* @gammarers/aws-resource-naming.ResourceDefaultNaming | @gammarers/aws-resource-naming.ResourceAutoNaming | <a href="#@gammarers/aws-rds-database-auto-running-protection-stack.CustomNaming">CustomNaming</a>
 
 ---
 

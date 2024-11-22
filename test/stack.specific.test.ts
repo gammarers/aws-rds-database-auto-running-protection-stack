@@ -1,8 +1,9 @@
+import { ResourceNamingType } from '@gammarers/aws-resource-naming';
 import { App } from 'aws-cdk-lib';
 import { Match, Template } from 'aws-cdk-lib/assertions';
 import { RDSDatabaseAutoRunningProtectionStack } from '../src';
 
-describe('Stack Default Testing', () => {
+describe('Stack Specific Testing', () => {
 
   const app = new App();
 
@@ -15,13 +16,16 @@ describe('Stack Default Testing', () => {
       tagKey: 'AutoRunningStop',
       tagValues: ['YES'],
     },
+    resourceNamingOption: {
+      type: ResourceNamingType.AUTO,
+    },
   });
 
   const template = Template.fromStack(stack);
 
   it('Should match state machine', () => {
     template.hasResourceProperties('AWS::StepFunctions::StateMachine', Match.objectEquals({
-      StateMachineName: Match.absent(),
+      StateMachineName: Match.anyValue(),
       DefinitionString: Match.anyValue(),
       RoleArn: {
         'Fn::GetAtt': [
@@ -30,14 +34,6 @@ describe('Stack Default Testing', () => {
         ],
       },
     }));
-  });
-
-  it('Should match iam role count', () => {
-    template.resourceCountIs('AWS::IAM::Role', 2);
-  });
-
-  it('Should match event rule count', () => {
-    template.resourceCountIs('AWS::Events::Rule', 2);
   });
 
   it('Should match snapshot', () => {
