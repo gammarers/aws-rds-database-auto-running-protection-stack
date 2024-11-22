@@ -1,4 +1,4 @@
-import * as crypto from 'crypto';
+import { ResourceAutoNaming, ResourceDefaultNaming, ResourceNaming, ResourceNamingOptions, ResourceNamingType } from '@gammarers/aws-resource-naming';
 import { Duration, Names, Stack, StackProps } from 'aws-cdk-lib';
 import * as events from 'aws-cdk-lib/aws-events';
 import * as targets from 'aws-cdk-lib/aws-events-targets';
@@ -6,6 +6,8 @@ import * as iam from 'aws-cdk-lib/aws-iam';
 import * as sfn from 'aws-cdk-lib/aws-stepfunctions';
 import * as tasks from 'aws-cdk-lib/aws-stepfunctions-tasks';
 import { Construct } from 'constructs';
+
+export type ResourceNamingOption = ResourceDefaultNaming | ResourceAutoNaming | CustomNaming;
 
 export interface TargetResourceProperty {
   readonly tagKey: string;
@@ -15,19 +17,37 @@ export interface TargetResourceProperty {
 export interface RDSDatabaseAutoRunningProtectionStackProps extends StackProps {
   readonly targetResource: TargetResourceProperty;
   readonly enableRule?: boolean;
+  readonly resourceNamingOption?: ResourceNamingOption;
+}
+
+export interface CustomNaming {
+  readonly type: ResourceNamingType.CUSTOM;
+  readonly stateMachineName: string;
+  readonly stateMachineRoleName: string;
+  readonly startEventCatchRuleRoleName: string;
+  readonly startInstanceEventCatchRuleName: string;
+  readonly startClusterEventCatchRuleName: string;
 }
 
 export class RDSDatabaseAutoRunningProtectionStack extends Stack {
   constructor(scope: Construct, id: string, props: RDSDatabaseAutoRunningProtectionStackProps) {
     super(scope, id, props);
 
+    // 👇 Get AWS account
     const account = Stack.of(this).account;
     //const region = Stack.of(this).region;
 
-    // 👇Create random key
-    const key = crypto.createHash('shake256', { outputLength: 4 })
-      .update(`${Names.uniqueId(scope)}.${Names.uniqueId(this)}`)
-      .digest('hex');
+    // 👇 Create random 8 length string
+    const random = ResourceNaming.createRandomString(`${Names.uniqueId(scope)}.${Names.uniqueId(this)}`);
+    // 👇 Auto naeming
+    const autoNaming = {
+      stateMachineName: `rds-db-auto-running-stop-${random}-state-machine`,
+      stateMachineRoleName: `rds-db-auto-running-stop-state-machine-${random}-role`,
+      startEventCatchRuleRoleName: `rds-db-auto-running-catch-event-${random}-role`,
+      startInstanceEventCatchRuleName: `rds-db-instance-running-event-catch-${random}-rule`,
+      startClusterEventCatchRuleName: `rds-db-cluster-running-event-catch-${random}-rule`,
+    };
+    const names = ResourceNaming.naming(autoNaming, props.resourceNamingOption as ResourceNamingOptions);
 
     const succeed = new sfn.Succeed(this, 'Succeed');
 
@@ -219,19 +239,21 @@ export class RDSDatabaseAutoRunningProtectionStack extends Stack {
 
     // 👇 StepFunctions
     const stateMachine = new sfn.StateMachine(this, 'StateMachine', {
-      stateMachineName: `rds-db-auto-running-stop-${key}-state-machine`,
+      stateMachineName: names.stateMachineName,
       definitionBody: sfn.DefinitionBody.fromChainable(startingWait),
     });
-    const role = stateMachine.node.findChild('Role') as iam.Role;
-    const cfnRole = role.node.defaultChild as iam.CfnRole;
-    cfnRole.addPropertyOverride('RoleName', `rds-db-auto-running-stop-state-machine-${key}-role`);
-    cfnRole.addPropertyOverride('Description', 'rds database auto running stop state machine role.');
-    const policy = role.node.findChild('DefaultPolicy') as iam.Policy;
-    const cfnPolicy = policy.node.defaultChild as iam.CfnPolicy;
-    cfnPolicy.addPropertyOverride('PolicyName', 'default-policy');
+    if (names.stateMachineRoleName) {
+      const role = stateMachine.node.findChild('Role') as iam.Role;
+      const cfnRole = role.node.defaultChild as iam.CfnRole;
+      cfnRole.addPropertyOverride('RoleName', names.stateMachineRoleName);
+      cfnRole.addPropertyOverride('Description', 'rds database auto running stop state machine role.');
+      const policy = role.node.findChild('DefaultPolicy') as iam.Policy;
+      const cfnPolicy = policy.node.defaultChild as iam.CfnPolicy;
+      cfnPolicy.addPropertyOverride('PolicyName', `rds-db-auto-running-stop-state-machine-${random}-policy`);
+    }
 
     const execRole = new iam.Role(this, 'EventExecRole', {
-      roleName: `rds-db-auto-running-catch-event-${key}-role`,
+      roleName: names.startEventCatchRuleRoleName,
       description: 'db auto start catch with start state machine event role',
       assumedBy: new iam.ServicePrincipal('events.amazonaws.com'),
       inlinePolicies: {
@@ -257,7 +279,7 @@ export class RDSDatabaseAutoRunningProtectionStack extends Stack {
 
     // 👇 EventBridge by RDS DB Instance Auto Start Event
     new events.Rule(this, 'DBInstanceEvent', {
-      ruleName: `rds-db-instance-running-event-catch-${key}-rule`,
+      ruleName: names.startInstanceEventCatchRuleName,
       description: 'rds db instance running event catch rule.',
       enabled: enableRule,
       eventPattern: {
@@ -283,7 +305,7 @@ export class RDSDatabaseAutoRunningProtectionStack extends Stack {
 
     // 👇 EventBridge by RDS DB Instance Auto Start Event
     new events.Rule(this, 'DBClusterEvent', {
-      ruleName: `rds-db-cluster-running-event-catch-${key}-rule`,
+      ruleName: names.startClusterEventCatchRuleName,
       description: 'db cluster running event catch rule',
       enabled: enableRule,
       eventPattern: {
