@@ -9,6 +9,24 @@
 
 This constructor stack includes a function to automatically stop a database or cluster that will automatically start in 7 days.
 
+> [!WARNING]
+> v2.1.0:
+> Stack props add option resourceNamingOption
+> default ResourceNamingType.DEFAULT is cdk generated name
+> if you want to maintain compatibility with versions below `v2.1.0`, please include the following settings (ResourceNamingType.AUTO).
+> ```typescript
+> new RDSDatabaseAutoRunningProtectionStack(app, 'RDSDatabaseAutoRunningProtectionStack', {
+>   stackName: 'rds-database-auto-running-protection-stack',
+>   targetResource: {
+>     tagKey: 'AutoRunningProtection',
+>     tagValues: ['YES'],
+>   },
+>   resourceNamingOption: {
+>     type: ResourceNamingType.AUTO, // HERE
+>   },
+> });
+> ```
+
 ## Resources
 
 This construct creating resource list.
