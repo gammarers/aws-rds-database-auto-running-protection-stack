@@ -358,6 +358,11 @@
   dependencies:
     levn "^0.4.1"
 
+"@gammarers/aws-resource-naming@0.8.2":
+  version "0.8.2"
+  resolved "https://registry.yarnpkg.com/@gammarers/aws-resource-naming/-/aws-resource-naming-0.8.2.tgz#f724fbaf4254750998058b495be050b56bfcd0b7"
+  integrity sha512-7AM/cLs1KyVTA9u+g1Xn3ZOaW7V55PlN37IJOfD2kZD0ZN1gO9xPAYHAuzqI7KVUgXAp1qFr/2f19/FcueCW5A==
+
 "@humanfs/core@^0.19.1":
   version "0.19.1"
   resolved "https://registry.yarnpkg.com/@humanfs/core/-/core-0.19.1.tgz#17c55ca7d426733fe3c561906b8173c336b40a77"

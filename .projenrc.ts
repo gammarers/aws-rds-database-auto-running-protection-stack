@@ -12,6 +12,15 @@ const project = new awscdk.AwsCdkConstructLibrary({
   projenrcTs: true,
   repositoryUrl: 'https://github.com/gammarers/aws-rds-database-auto-running-protection-stack.git',
   authorOrganization: true,
+  deps: [
+    '@gammarers/aws-resource-naming@0.8.2',
+  ],
+  devDeps: [
+    '@gammarers/aws-resource-naming@0.8.2',
+  ],
+  peerDeps: [
+    '@gammarers/aws-resource-naming@^0.8.2',
+  ],
   releaseToNpm: true,
   npmAccess: javascript.NpmAccess.PUBLIC,
   majorVersion: 2,
