@@ -1,4 +1,4 @@
-import { ResourceAutoNaming, ResourceDefaultNaming, ResourceNaming, ResourceNamingOptions, ResourceNamingType } from '@gammarers/aws-resource-naming';
+import { ResourceAutoNaming, ResourceDefaultNaming, ResourceNaming, ResourceNamingType } from '@gammarers/aws-resource-naming';
 import { Duration, Names, Stack, StackProps } from 'aws-cdk-lib';
 import * as events from 'aws-cdk-lib/aws-events';
 import * as targets from 'aws-cdk-lib/aws-events-targets';
@@ -47,7 +47,7 @@ export class RDSDatabaseAutoRunningProtectionStack extends Stack {
       startInstanceEventCatchRuleName: `rds-db-instance-running-event-catch-${random}-rule`,
       startClusterEventCatchRuleName: `rds-db-cluster-running-event-catch-${random}-rule`,
     };
-    const names = ResourceNaming.naming(autoNaming, props.resourceNamingOption as ResourceNamingOptions);
+    const names = ResourceNaming.naming(autoNaming, props.resourceNamingOption as ResourceNaming.ResourceNamingOption);
 
     const succeed = new sfn.Succeed(this, 'Succeed');
 
