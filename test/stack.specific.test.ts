@@ -16,6 +16,12 @@ describe('Stack Specific Testing', () => {
       tagKey: 'AutoRunningStop',
       tagValues: ['YES'],
     },
+    notifications: {
+      emails: [
+        'foo@example.com',
+        'bar@example.com',
+      ],
+    },
     resourceNamingOption: {
       type: ResourceNamingType.AUTO,
     },

@@ -3,20 +3,26 @@ import { Names, Stack, StackProps } from 'aws-cdk-lib';
 import * as events from 'aws-cdk-lib/aws-events';
 import * as targets from 'aws-cdk-lib/aws-events-targets';
 import * as iam from 'aws-cdk-lib/aws-iam';
-
+import * as sns from 'aws-cdk-lib/aws-sns';
+import * as subscriptions from 'aws-cdk-lib/aws-sns-subscriptions';
 import { Construct } from 'constructs';
 import { ProtectionStateMachine } from './resources/protection-state-machine';
 
-export type ResourceNamingOption = ResourceDefaultNaming | ResourceAutoNaming | CustomNaming;
+export { ResourceAutoNaming, ResourceDefaultNaming, ResourceNamingType as RDSDatabaseAutoRunningProtectionStackResourceNamingType };
 
 export interface TargetResourceProperty {
   readonly tagKey: string;
   readonly tagValues: string[];
 }
 
+export interface Notifications {
+  readonly emails?: string[];
+}
+
 export interface RDSDatabaseAutoRunningProtectionStackProps extends StackProps {
   readonly targetResource: TargetResourceProperty;
   readonly enableRule?: boolean;
+  readonly notifications?: Notifications;
   readonly resourceNamingOption?: ResourceNamingOption;
 }
 
@@ -28,6 +34,8 @@ export interface CustomNaming {
   readonly startInstanceEventCatchRuleName: string;
   readonly startClusterEventCatchRuleName: string;
 }
+
+export type ResourceNamingOption = ResourceDefaultNaming | ResourceAutoNaming | CustomNaming;
 
 export class RDSDatabaseAutoRunningProtectionStack extends Stack {
   constructor(scope: Construct, id: string, props: RDSDatabaseAutoRunningProtectionStackProps) {
@@ -45,9 +53,22 @@ export class RDSDatabaseAutoRunningProtectionStack extends Stack {
     };
     const names = ResourceNaming.naming(autoNaming, props.resourceNamingOption as ResourceNaming.ResourceNamingOption);
 
+    // 👇 SNS Topic for notifications
+    const topic: sns.Topic = new sns.Topic(this, 'NotificationTopic', {
+      topicName: names.notificationTopicName,
+      displayName: names.notificationTopicDisplayName,
+    });
+
+    // 👇 Subscribe an email endpoint to the topic
+    const emails = props.notifications?.emails ?? [];
+    for (const email of emails) {
+      topic.addSubscription(new subscriptions.EmailSubscription(email));
+    }
+
     // 👇 StepFunctions
     const stateMachine = new ProtectionStateMachine(this, 'StateMachine', {
       stateMachineName: names.stateMachineName,
+      notificationTopic: topic,
     });
     if (names.stateMachineRoleName) {
       const role = stateMachine.node.findChild('Role') as iam.Role;
