@@ -962,6 +962,34 @@ public readonly type: ResourceNamingType;
 
 ---
 
+### Notifications <a name="Notifications" id="@gammarers/aws-rds-database-auto-running-protection-stack.Notifications"></a>
+
+#### Initializer <a name="Initializer" id="@gammarers/aws-rds-database-auto-running-protection-stack.Notifications.Initializer"></a>
+
+```typescript
+import { Notifications } from '@gammarers/aws-rds-database-auto-running-protection-stack'
+
+const notifications: Notifications = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@gammarers/aws-rds-database-auto-running-protection-stack.Notifications.property.emails">emails</a></code> | <code>string[]</code> | *No description.* |
+
+---
+
+##### `emails`<sup>Optional</sup> <a name="emails" id="@gammarers/aws-rds-database-auto-running-protection-stack.Notifications.property.emails"></a>
+
+```typescript
+public readonly emails: string[];
+```
+
+- *Type:* string[]
+
+---
+
 ### RDSDatabaseAutoRunningProtectionStackProps <a name="RDSDatabaseAutoRunningProtectionStackProps" id="@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStackProps"></a>
 
 #### Initializer <a name="Initializer" id="@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStackProps.Initializer"></a>
@@ -988,6 +1016,7 @@ const rDSDatabaseAutoRunningProtectionStackProps: RDSDatabaseAutoRunningProtecti
 | <code><a href="#@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStackProps.property.terminationProtection">terminationProtection</a></code> | <code>boolean</code> | Whether to enable termination protection for this stack. |
 | <code><a href="#@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStackProps.property.targetResource">targetResource</a></code> | <code><a href="#@gammarers/aws-rds-database-auto-running-protection-stack.TargetResourceProperty">TargetResourceProperty</a></code> | *No description.* |
 | <code><a href="#@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStackProps.property.enableRule">enableRule</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStackProps.property.notifications">notifications</a></code> | <code><a href="#@gammarers/aws-rds-database-auto-running-protection-stack.Notifications">Notifications</a></code> | *No description.* |
 | <code><a href="#@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStackProps.property.resourceNamingOption">resourceNamingOption</a></code> | <code>@gammarers/aws-resource-naming.ResourceDefaultNaming \| @gammarers/aws-resource-naming.ResourceAutoNaming \| <a href="#@gammarers/aws-rds-database-auto-running-protection-stack.CustomNaming">CustomNaming</a></code> | *No description.* |
 
 ---
@@ -1219,6 +1248,16 @@ public readonly enableRule: boolean;
 ```
 
 - *Type:* boolean
+
+---
+
+##### `notifications`<sup>Optional</sup> <a name="notifications" id="@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStackProps.property.notifications"></a>
+
+```typescript
+public readonly notifications: Notifications;
+```
+
+- *Type:* <a href="#@gammarers/aws-rds-database-auto-running-protection-stack.Notifications">Notifications</a>
 
 ---
 
