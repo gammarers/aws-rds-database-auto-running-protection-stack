@@ -97,6 +97,11 @@
       "type": "peer"
     },
     {
+      "name": "@gammarers/aws-sns-slack-message-lambda-subscription",
+      "version": "^0.2.4",
+      "type": "peer"
+    },
+    {
       "name": "aws-cdk-lib",
       "version": "^2.120.0",
       "type": "peer"
@@ -109,6 +114,11 @@
     {
       "name": "@gammarers/aws-resource-naming",
       "version": "^0.10.1",
+      "type": "runtime"
+    },
+    {
+      "name": "@gammarers/aws-sns-slack-message-lambda-subscription",
+      "version": "^0.2.4",
       "type": "runtime"
     }
   ],

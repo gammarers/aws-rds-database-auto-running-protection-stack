@@ -60,11 +60,13 @@
   },
   "peerDependencies": {
     "@gammarers/aws-resource-naming": "^0.10.1",
+    "@gammarers/aws-sns-slack-message-lambda-subscription": "^0.2.4",
     "aws-cdk-lib": "^2.120.0",
     "constructs": "^10.0.5"
   },
   "dependencies": {
-    "@gammarers/aws-resource-naming": "^0.10.1"
+    "@gammarers/aws-resource-naming": "^0.10.1",
+    "@gammarers/aws-sns-slack-message-lambda-subscription": "^0.2.4"
   },
   "keywords": [
     "auto",
