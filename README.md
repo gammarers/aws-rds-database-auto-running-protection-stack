@@ -22,7 +22,7 @@ This constructor stack includes a function to automatically stop a database or c
 >     tagValues: ['YES'],
 >   },
 >   resourceNamingOption: {
->     type: ResourceNamingType.AUTO, // HERE
+>     type: RDSDatabaseAutoRunningProtectionStackResourceNamingType.AUTO, // HERE
 >   },
 > });
 > ```
