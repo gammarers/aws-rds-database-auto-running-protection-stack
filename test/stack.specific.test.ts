@@ -1,7 +1,7 @@
-import { ResourceNamingType } from '@gammarers/aws-resource-naming';
 import { App } from 'aws-cdk-lib';
 import { Match, Template } from 'aws-cdk-lib/assertions';
-import { RDSDatabaseAutoRunningProtectionStack } from '../src';
+import { RDSDatabaseAutoRunningProtectionStack, RDSDatabaseAutoRunningProtectionStackResourceNamingType } from '../src';
+
 
 describe('Stack Specific Testing', () => {
 
@@ -21,9 +21,12 @@ describe('Stack Specific Testing', () => {
         'foo@example.com',
         'bar@example.com',
       ],
+      slack: {
+        webhookSecretName: 'example/slack/webhook',
+      },
     },
     resourceNamingOption: {
-      type: ResourceNamingType.AUTO,
+      type: RDSDatabaseAutoRunningProtectionStackResourceNamingType.AUTO,
     },
   });
 

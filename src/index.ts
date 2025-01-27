@@ -1,4 +1,5 @@
-import { ResourceAutoNaming, ResourceDefaultNaming, ResourceNaming, ResourceNamingType } from '@gammarers/aws-resource-naming';
+import { ResourceAutoNaming, ResourceDefaultNaming, ResourceNaming, ResourceNamingType as RDSDatabaseAutoRunningProtectionStackResourceNamingType } from '@gammarers/aws-resource-naming';
+import { SNSSlackMessageLambdaSubscription } from '@gammarers/aws-sns-slack-message-lambda-subscription';
 import { Names, Stack, StackProps } from 'aws-cdk-lib';
 import * as events from 'aws-cdk-lib/aws-events';
 import * as targets from 'aws-cdk-lib/aws-events-targets';
@@ -8,26 +9,31 @@ import * as subscriptions from 'aws-cdk-lib/aws-sns-subscriptions';
 import { Construct } from 'constructs';
 import { ProtectionStateMachine } from './resources/protection-state-machine';
 
-export { ResourceAutoNaming, ResourceDefaultNaming, ResourceNamingType as RDSDatabaseAutoRunningProtectionStackResourceNamingType };
+export { RDSDatabaseAutoRunningProtectionStackResourceNamingType };
 
-export interface TargetResourceProperty {
+export interface TargetResource {
   readonly tagKey: string;
   readonly tagValues: string[];
 }
 
+export interface Slack {
+  readonly webhookSecretName: string;
+}
+
 export interface Notifications {
   readonly emails?: string[];
+  readonly slack?: Slack;
 }
 
 export interface RDSDatabaseAutoRunningProtectionStackProps extends StackProps {
-  readonly targetResource: TargetResourceProperty;
+  readonly targetResource: TargetResource;
   readonly enableRule?: boolean;
   readonly notifications?: Notifications;
   readonly resourceNamingOption?: ResourceNamingOption;
 }
 
-export interface CustomNaming {
-  readonly type: ResourceNamingType.CUSTOM;
+export interface ResourceCustomNaming {
+  readonly type: RDSDatabaseAutoRunningProtectionStackResourceNamingType.CUSTOM;
   readonly stateMachineName: string;
   readonly stateMachineRoleName: string;
   readonly startEventCatchRuleRoleName: string;
@@ -35,7 +41,7 @@ export interface CustomNaming {
   readonly startClusterEventCatchRuleName: string;
 }
 
-export type ResourceNamingOption = ResourceDefaultNaming | ResourceAutoNaming | CustomNaming;
+export type ResourceNamingOption = ResourceDefaultNaming | ResourceAutoNaming | ResourceCustomNaming;
 
 export class RDSDatabaseAutoRunningProtectionStack extends Stack {
   constructor(scope: Construct, id: string, props: RDSDatabaseAutoRunningProtectionStackProps) {
@@ -63,6 +69,14 @@ export class RDSDatabaseAutoRunningProtectionStack extends Stack {
     const emails = props.notifications?.emails ?? [];
     for (const email of emails) {
       topic.addSubscription(new subscriptions.EmailSubscription(email));
+    }
+
+    // 👇 Subscription slack webhook
+    if (props.notifications?.slack) {
+      new SNSSlackMessageLambdaSubscription(this, 'SNSSlackMessageLambdaSubscription', {
+        topic,
+        slackWebhookSecretName: props.notifications.slack.webhookSecretName,
+      });
     }
 
     // 👇 StepFunctions

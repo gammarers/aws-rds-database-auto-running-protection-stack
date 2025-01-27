@@ -66,12 +66,7 @@ export class ProtectionStateMachine extends sfn.StateMachine {
               attachments: [
                 {
                   color: '#36a64f',
-                  pretext: sfn.JsonPath.format('AWS RDS DB {} Auto Running Protected Notification',
-                    sfn.JsonPath.stringAt('$.event.detail.SourceType'),
-                  ),
-                  title: sfn.JsonPath.stringAt('$.event.detail.SourceIdentifier'),
-                  title_link: sfn.JsonPath.stringAt('$.Generate.Link.Value'),
-                  text: sfn.JsonPath.format('AWS RDS DB {} {} Auto Running Protected',
+                  pretext: sfn.JsonPath.format('😴 Successfully stopped the automatically running RDS {} {}.',
                     sfn.JsonPath.stringAt('$.event.detail.SourceType'),
                     sfn.JsonPath.stringAt('$.event.detail.SourceIdentifier'),
                   ),
@@ -111,7 +106,7 @@ export class ProtectionStateMachine extends sfn.StateMachine {
           message: sfn.TaskInput.fromObject({
             default: sfn.JsonPath.stringAt('$.Generate.Topic.TextMessage'),
             email: sfn.JsonPath.stringAt('$.Generate.Topic.TextMessage'),
-            lambda: sfn.JsonPath.stringAt('$.Generate.Topic.SlackJsonMessage'),
+            lambda: sfn.JsonPath.jsonToString(sfn.JsonPath.objectAt('$.Generate.Topic.SlackJsonMessage')),
           }),
           messagePerSubscriptionType: true,
           resultPath: '$.snsResult',
