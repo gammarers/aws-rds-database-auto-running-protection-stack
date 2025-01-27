@@ -24,7 +24,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
   npmAccess: javascript.NpmAccess.PUBLIC,
   majorVersion: 2,
   minNodeVersion: '18.0.0',
-  workflowNodeVersion: '22.4.x',
+  workflowNodeVersion: '22.x',
   depsUpgradeOptions: {
     workflowOptions: {
       labels: ['auto-approve', 'auto-merge'],
