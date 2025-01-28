@@ -65,6 +65,18 @@ pnpm add @gammarers/aws-rds-database-auto-running-protection-stack
 bun add @gammarers/aws-rds-database-auto-running-protection-stack
 ```
 
+### Python
+
+```shell
+pip install gammarers.aws-rds-database-auto-running-protection-stack
+```
+
+### C# / .NET
+
+```shell
+dotnet add package Gammarers.CDK.AWS.RDSDatabaseAutoRunningProtectionStack
+```
+
 ## Example
 
 ### Code
