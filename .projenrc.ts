@@ -39,5 +39,9 @@ const project = new awscdk.AwsCdkConstructLibrary({
     distName: 'gammarers.aws-rds-database-auto-running-protection-stack',
     module: 'gammarers.aws_rds_database_auto_running_protection_stack',
   },
+  publishToNuget: {
+    dotNetNamespace: 'Gammarers.CDK.AWS',
+    packageId: 'Gammarers.CDK.AWS.RDSDatabaseAutoRunningProtectionStack',
+  },
 });
 project.synth();
