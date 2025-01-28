@@ -67,6 +67,8 @@ bun add @gammarers/aws-rds-database-auto-running-protection-stack
 
 ## Example
 
+### Code
+
 ```typescript
 import { RDSDatabaseAutoRunningProtectionStack } from '@gammarers/aws-rds-database-auto-running-protection-stack';
 
@@ -76,9 +78,46 @@ new RDSDatabaseAutoRunningProtectionStack(app, 'RDSDatabaseAutoRunningProtection
     tagKey: 'AutoRunningProtection',
     tagValues: ['YES'],
   },
+  resourceNamingOption: {
+    type: RDSDatabaseAutoRunningProtectionStackResourceNamingType.DEFAULT,
+  },
+  notifications: {
+    emails: [ // "Incoming Sample Message - EMAIL"
+      'foo@example.com',
+      'bar@example.net',
+    ],
+    slack: { // "Incoming Sample Message - Slack"
+      webhookSecretName: 'example/slack/webhook', // Slack webhook secret
+    },
+  },
 });
-
 ```
+
+### Slack webhook secret
+
+Please save it in AWS Secrets Manager in the following format.
+
+get your slack webhook url parts
+
+```text
+https://hooks.slack.com/services/<workspace>/<channel>/<whebook>
+```
+
+| SecretKey 	 | SecretValue 	   |
+|-------------|-----------------|
+| Workspace 	 | \<workspace\> 	 |
+| Channel   	 | \<channel\>   	 |
+| Webhook   	 | \<whebook\>   	 |
+
+## Incoming Sample Message
+
+### EMAIL
+
+![](./images/example-email.png)
+
+### Slack
+
+![](./images/example-slack.png)
 
 ## License
 
