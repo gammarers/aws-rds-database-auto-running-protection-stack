@@ -4,8 +4,10 @@ import { Names, Stack, StackProps } from 'aws-cdk-lib';
 import * as events from 'aws-cdk-lib/aws-events';
 import * as targets from 'aws-cdk-lib/aws-events-targets';
 import * as iam from 'aws-cdk-lib/aws-iam';
+import * as logs from 'aws-cdk-lib/aws-logs';
 import * as sns from 'aws-cdk-lib/aws-sns';
 import * as subscriptions from 'aws-cdk-lib/aws-sns-subscriptions';
+import * as sfn from 'aws-cdk-lib/aws-stepfunctions';
 import { Construct } from 'constructs';
 import { ProtectionStateMachine } from './resources/protection-state-machine';
 
@@ -25,11 +27,18 @@ export interface Notifications {
   readonly slack?: Slack;
 }
 
+export type MachineLogLevel = sfn.LogLevel;
+
+export interface LogOption {
+  readonly machineLogLevel?: MachineLogLevel;
+}
+
 export interface RDSDatabaseAutoRunningProtectionStackProps extends StackProps {
   readonly targetResource: TargetResource;
   readonly enableRule?: boolean;
   readonly notifications?: Notifications;
   readonly resourceNamingOption?: ResourceNamingOption;
+  readonly logOption?: LogOption;
 }
 
 export interface ResourceCustomNaming {
@@ -83,6 +92,22 @@ export class RDSDatabaseAutoRunningProtectionStack extends Stack {
     const stateMachine = new ProtectionStateMachine(this, 'StateMachine', {
       stateMachineName: names.stateMachineName,
       notificationTopic: topic,
+      logs: (() => {
+        if (props.logOption?.machineLogLevel) {
+          return {
+            destination: new logs.LogGroup(this, 'StateMachineLogGroup', {
+              logGroupName: (() => {
+                if (names.stateMachineName) {
+                  return `/aws/states/${names.stateMachineName}`;
+                }
+                return undefined;
+              })(),
+            }),
+            level: props.logOption.machineLogLevel,
+          };
+        }
+        return undefined;
+      })(),
     });
     if (names.stateMachineRoleName) {
       const role = stateMachine.node.findChild('Role') as iam.Role;

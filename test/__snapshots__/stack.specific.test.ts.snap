@@ -349,6 +349,21 @@ exports[`Stack Specific Testing Should match snapshot 1`] = `
             ],
           ],
         },
+        "LoggingConfiguration": {
+          "Destinations": [
+            {
+              "CloudWatchLogsLogGroup": {
+                "LogGroupArn": {
+                  "Fn::GetAtt": [
+                    "StateMachineLogGroup15B91BCB",
+                    "Arn",
+                  ],
+                },
+              },
+            },
+          ],
+          "Level": "ALL",
+        },
         "RoleArn": {
           "Fn::GetAtt": [
             "StateMachineRoleB840431D",
@@ -359,6 +374,15 @@ exports[`Stack Specific Testing Should match snapshot 1`] = `
       },
       "Type": "AWS::StepFunctions::StateMachine",
       "UpdateReplacePolicy": "Delete",
+    },
+    "StateMachineLogGroup15B91BCB": {
+      "DeletionPolicy": "Retain",
+      "Properties": {
+        "LogGroupName": "/aws/states/rds-db-auto-running-stop-6b53905e-state-machine",
+        "RetentionInDays": 731,
+      },
+      "Type": "AWS::Logs::LogGroup",
+      "UpdateReplacePolicy": "Retain",
     },
     "StateMachineRoleB840431D": {
       "Properties": {
@@ -383,6 +407,20 @@ exports[`Stack Specific Testing Should match snapshot 1`] = `
       "Properties": {
         "PolicyDocument": {
           "Statement": [
+            {
+              "Action": [
+                "logs:CreateLogDelivery",
+                "logs:GetLogDelivery",
+                "logs:UpdateLogDelivery",
+                "logs:DeleteLogDelivery",
+                "logs:ListLogDeliveries",
+                "logs:PutResourcePolicy",
+                "logs:DescribeResourcePolicies",
+                "logs:DescribeLogGroups",
+              ],
+              "Effect": "Allow",
+              "Resource": "*",
+            },
             {
               "Action": "rds:stopDBInstance",
               "Effect": "Allow",
