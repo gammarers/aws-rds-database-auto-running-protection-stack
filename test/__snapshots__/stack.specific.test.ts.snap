@@ -245,7 +245,7 @@ exports[`Stack Specific Testing Should match snapshot 1`] = `
         ],
         "Code": {
           "S3Bucket": "cdk-hnb659fds-assets-123456789012-us-east-1",
-          "S3Key": "cef2a12ffd44ab66061eb4ed45b38d3929ef3a4e00bb2d2c6e188210372520d6.zip",
+          "S3Key": "c8fb2d9f57ed69659fcb54a3e120f5d0863f16e0f1733edd0e5dcc5ecb788662.zip",
         },
         "Description": "Send Slack message function",
         "Environment": {
