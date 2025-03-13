@@ -7,11 +7,14 @@ import * as iam from 'aws-cdk-lib/aws-iam';
 import * as logs from 'aws-cdk-lib/aws-logs';
 import * as sns from 'aws-cdk-lib/aws-sns';
 import * as subscriptions from 'aws-cdk-lib/aws-sns-subscriptions';
-import * as sfn from 'aws-cdk-lib/aws-stepfunctions';
+import { LogLevel as RDSDatabaseAutoRunningProtectionStackMachineLogLevel } from 'aws-cdk-lib/aws-stepfunctions';
 import { Construct } from 'constructs';
 import { ProtectionStateMachine } from './resources/protection-state-machine';
 
-export { RDSDatabaseAutoRunningProtectionStackResourceNamingType };
+export {
+  RDSDatabaseAutoRunningProtectionStackResourceNamingType,
+  RDSDatabaseAutoRunningProtectionStackMachineLogLevel,
+};
 
 export interface TargetResource {
   readonly tagKey: string;
@@ -27,10 +30,8 @@ export interface Notifications {
   readonly slack?: Slack;
 }
 
-export type MachineLogLevel = sfn.LogLevel;
-
 export interface LogOption {
-  readonly machineLogLevel?: MachineLogLevel;
+  readonly machineLogLevel?: RDSDatabaseAutoRunningProtectionStackMachineLogLevel;
 }
 
 export interface RDSDatabaseAutoRunningProtectionStackProps extends StackProps {

@@ -1,7 +1,6 @@
 import { App } from 'aws-cdk-lib';
 import { Match, Template } from 'aws-cdk-lib/assertions';
-import * as sfn from 'aws-cdk-lib/aws-stepfunctions';
-import { RDSDatabaseAutoRunningProtectionStack, RDSDatabaseAutoRunningProtectionStackResourceNamingType } from '../src';
+import { RDSDatabaseAutoRunningProtectionStack, RDSDatabaseAutoRunningProtectionStackResourceNamingType, RDSDatabaseAutoRunningProtectionStackMachineLogLevel } from '../src';
 
 describe('Stack Specific Testing', () => {
 
@@ -29,7 +28,7 @@ describe('Stack Specific Testing', () => {
       type: RDSDatabaseAutoRunningProtectionStackResourceNamingType.AUTO,
     },
     logOption: {
-      machineLogLevel: sfn.LogLevel.ALL,
+      machineLogLevel: RDSDatabaseAutoRunningProtectionStackMachineLogLevel.ALL,
     },
   });
 
