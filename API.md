@@ -975,6 +975,7 @@ const rDSDatabaseAutoRunningProtectionStackProps: RDSDatabaseAutoRunningProtecti
 | <code><a href="#@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStackProps.property.logOption">logOption</a></code> | <code><a href="#@gammarers/aws-rds-database-auto-running-protection-stack.LogOption">LogOption</a></code> | *No description.* |
 | <code><a href="#@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStackProps.property.notifications">notifications</a></code> | <code><a href="#@gammarers/aws-rds-database-auto-running-protection-stack.Notifications">Notifications</a></code> | *No description.* |
 | <code><a href="#@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStackProps.property.resourceNamingOption">resourceNamingOption</a></code> | <code>@gammarers/aws-resource-naming.ResourceDefaultNaming \| @gammarers/aws-resource-naming.ResourceAutoNaming \| <a href="#@gammarers/aws-rds-database-auto-running-protection-stack.ResourceCustomNaming">ResourceCustomNaming</a></code> | *No description.* |
+| <code><a href="#@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStackProps.property.timeout">timeout</a></code> | <code><a href="#@gammarers/aws-rds-database-auto-running-protection-stack.Timeout">Timeout</a></code> | *No description.* |
 
 ---
 
@@ -1238,6 +1239,16 @@ public readonly resourceNamingOption: ResourceDefaultNaming | ResourceAutoNaming
 
 ---
 
+##### `timeout`<sup>Optional</sup> <a name="timeout" id="@gammarers/aws-rds-database-auto-running-protection-stack.RDSDatabaseAutoRunningProtectionStackProps.property.timeout"></a>
+
+```typescript
+public readonly timeout: Timeout;
+```
+
+- *Type:* <a href="#@gammarers/aws-rds-database-auto-running-protection-stack.Timeout">Timeout</a>
+
+---
+
 ### ResourceCustomNaming <a name="ResourceCustomNaming" id="@gammarers/aws-rds-database-auto-running-protection-stack.ResourceCustomNaming"></a>
 
 #### Initializer <a name="Initializer" id="@gammarers/aws-rds-database-auto-running-protection-stack.ResourceCustomNaming.Initializer"></a>
@@ -1385,6 +1396,34 @@ public readonly tagValues: string[];
 ```
 
 - *Type:* string[]
+
+---
+
+### Timeout <a name="Timeout" id="@gammarers/aws-rds-database-auto-running-protection-stack.Timeout"></a>
+
+#### Initializer <a name="Initializer" id="@gammarers/aws-rds-database-auto-running-protection-stack.Timeout.Initializer"></a>
+
+```typescript
+import { Timeout } from '@gammarers/aws-rds-database-auto-running-protection-stack'
+
+const timeout: Timeout = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@gammarers/aws-rds-database-auto-running-protection-stack.Timeout.property.stateMachineTimeout">stateMachineTimeout</a></code> | <code>aws-cdk-lib.Duration</code> | *No description.* |
+
+---
+
+##### `stateMachineTimeout`<sup>Optional</sup> <a name="stateMachineTimeout" id="@gammarers/aws-rds-database-auto-running-protection-stack.Timeout.property.stateMachineTimeout"></a>
+
+```typescript
+public readonly stateMachineTimeout: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
 
 ---
 
