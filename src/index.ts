@@ -1,6 +1,6 @@
 import { ResourceAutoNaming, ResourceDefaultNaming, ResourceNaming, ResourceNamingType as RDSDatabaseAutoRunningProtectionStackResourceNamingType } from '@gammarers/aws-resource-naming';
 import { SNSSlackMessageLambdaSubscription } from '@gammarers/aws-sns-slack-message-lambda-subscription';
-import { Names, Stack, StackProps } from 'aws-cdk-lib';
+import { Duration, Names, Stack, StackProps } from 'aws-cdk-lib';
 import * as events from 'aws-cdk-lib/aws-events';
 import * as targets from 'aws-cdk-lib/aws-events-targets';
 import * as iam from 'aws-cdk-lib/aws-iam';
@@ -34,12 +34,17 @@ export interface LogOption {
   readonly machineLogLevel?: RDSDatabaseAutoRunningProtectionStackMachineLogLevel;
 }
 
+export interface Timeout {
+  readonly stateMachineTimeout?: Duration;
+}
+
 export interface RDSDatabaseAutoRunningProtectionStackProps extends StackProps {
   readonly targetResource: TargetResource;
   readonly enableRule?: boolean;
   readonly notifications?: Notifications;
   readonly resourceNamingOption?: ResourceNamingOption;
   readonly logOption?: LogOption;
+  readonly timeout?: Timeout;
 }
 
 export interface ResourceCustomNaming {
@@ -93,6 +98,12 @@ export class RDSDatabaseAutoRunningProtectionStack extends Stack {
     const stateMachine = new ProtectionStateMachine(this, 'StateMachine', {
       stateMachineName: names.stateMachineName,
       notificationTopic: topic,
+      timeout: (() => {
+        if (props.timeout?.stateMachineTimeout) {
+          return props.timeout?.stateMachineTimeout;
+        }
+        return Duration.hours(1);
+      })(),
       logs: (() => {
         if (props.logOption?.machineLogLevel) {
           return {

@@ -1,4 +1,4 @@
-import { App } from 'aws-cdk-lib';
+import { App, Duration } from 'aws-cdk-lib';
 import { Match, Template } from 'aws-cdk-lib/assertions';
 import { RDSDatabaseAutoRunningProtectionStack, RDSDatabaseAutoRunningProtectionStackResourceNamingType, RDSDatabaseAutoRunningProtectionStackMachineLogLevel } from '../src';
 
@@ -29,6 +29,9 @@ describe('Stack Specific Testing', () => {
     },
     logOption: {
       machineLogLevel: RDSDatabaseAutoRunningProtectionStackMachineLogLevel.ALL,
+    },
+    timeout: {
+      stateMachineTimeout: Duration.minutes(30),
     },
   });
 

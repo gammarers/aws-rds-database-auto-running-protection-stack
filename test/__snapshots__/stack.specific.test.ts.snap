@@ -345,7 +345,7 @@ exports[`Stack Specific Testing Should match snapshot 1`] = `
               {
                 "Ref": "NotificationTopicEB7A0DF1",
               },
-              "","Message":{"default.$":"$.Generate.Topic.TextMessage","email.$":"$.Generate.Topic.TextMessage","lambda.$":"States.JsonToString($.Generate.Topic.SlackJsonMessage)"},"MessageStructure":"json","Subject.$":"$.Generate.Topic.Subject"}},"Succeed":{"Type":"Succeed"},"UnknownType":{"Type":"Fail"}}}",
+              "","Message":{"default.$":"$.Generate.Topic.TextMessage","email.$":"$.Generate.Topic.TextMessage","lambda.$":"States.JsonToString($.Generate.Topic.SlackJsonMessage)"},"MessageStructure":"json","Subject.$":"$.Generate.Topic.Subject"}},"Succeed":{"Type":"Succeed"},"UnknownType":{"Type":"Fail"}},"TimeoutSeconds":1800}",
             ],
           ],
         },
