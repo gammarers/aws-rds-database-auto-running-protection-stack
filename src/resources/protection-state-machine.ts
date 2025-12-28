@@ -59,7 +59,7 @@ export class ProtectionStateMachine extends sfn.StateMachine {
             TextMessage: sfn.JsonPath.format('Account : {}\nRegion : {}\nType : {}\nIdentifier : {}',
               sfn.JsonPath.stringAt('$.prepare.topic.values.account'),
               sfn.JsonPath.stringAt('$.prepare.topic.values.region'),
-              sfn.JsonPath.stringAt('$.event.detail.SourceType'),
+              sfn.JsonPath.arrayGetItem(sfn.JsonPath.stringAt('$.definition.mapping.SourceType[?(@.key == $.event.detail.SourceType)].value'), 0),
               sfn.JsonPath.stringAt('$.event.detail.SourceIdentifier'),
             ),
             SlackJsonMessage: {
@@ -67,7 +67,7 @@ export class ProtectionStateMachine extends sfn.StateMachine {
                 {
                   color: '#36a64f',
                   pretext: sfn.JsonPath.format('😴 Successfully stopped the automatically running RDS {} {}.',
-                    sfn.JsonPath.stringAt('$.event.detail.SourceType'),
+                    sfn.JsonPath.arrayGetItem(sfn.JsonPath.stringAt('$.definition.mapping.SourceType[?(@.key == $.event.detail.SourceType)].value'), 0),
                     sfn.JsonPath.stringAt('$.event.detail.SourceIdentifier'),
                   ),
                   fields: [
@@ -83,7 +83,7 @@ export class ProtectionStateMachine extends sfn.StateMachine {
                     },
                     {
                       title: 'Type',
-                      value: sfn.JsonPath.stringAt('$.event.detail.SourceType'),
+                      value: sfn.JsonPath.arrayGetItem(sfn.JsonPath.stringAt('$.definition.mapping.SourceType[?(@.key == $.event.detail.SourceType)].value'), 0),
                       short: true,
                     },
                     {
