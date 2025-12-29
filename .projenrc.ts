@@ -4,8 +4,8 @@ const project = new awscdk.AwsCdkConstructLibrary({
   authorAddress: 'yicr@users.noreply.github.com',
   cdkVersion: '2.120.0',
   defaultReleaseBranch: 'main',
-  typescriptVersion: '5.8.x',
-  jsiiVersion: '5.8.x',
+  typescriptVersion: '5.9.x',
+  jsiiVersion: '5.9.x',
   name: '@gammarers/aws-rds-database-auto-running-protection-stack',
   description: 'This construct is aws rds database or cluster auto running to stop.',
   keywords: ['aws', 'cdk', 'aws-cdk', 'rds', 'run', 'auto', 'stop'],
@@ -24,7 +24,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
   npmAccess: javascript.NpmAccess.PUBLIC,
   majorVersion: 2,
   minNodeVersion: '18.0.0',
-  workflowNodeVersion: '22.x',
+  workflowNodeVersion: '24.x',
   depsUpgradeOptions: {
     workflowOptions: {
       labels: ['auto-approve', 'auto-merge'],
