@@ -20,7 +20,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
     '@gammarers/aws-resource-naming@^0.10.1',
     '@gammarers/aws-sns-slack-message-lambda-subscription@^0.2.4',
   ],
-  releaseToNpm: true,
+  releaseToNpm: false,
   npmAccess: javascript.NpmAccess.PUBLIC,
   majorVersion: 2,
   minNodeVersion: '18.0.0',
@@ -28,7 +28,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
   depsUpgradeOptions: {
     workflowOptions: {
       labels: ['auto-approve', 'auto-merge'],
-      schedule: javascript.UpgradeDependenciesSchedule.expressions(['0 19 * * 3']),
+      schedule: javascript.UpgradeDependenciesSchedule.NEVER,
     },
   },
   autoApproveOptions: {

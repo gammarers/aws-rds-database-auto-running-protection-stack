@@ -7,7 +7,6 @@ queue_rules:
       - "#approved-reviews-by>=1"
       - -label~=(do-not-merge)
       - status-success=build
-      - status-success=package-js
       - status-success=package-python
       - status-success=package-dotnet
     merge_method: squash
@@ -25,7 +24,6 @@ pull_request_rules:
       - "#approved-reviews-by>=1"
       - -label~=(do-not-merge)
       - status-success=build
-      - status-success=package-js
       - status-success=package-python
       - status-success=package-dotnet
 merge_queue:
